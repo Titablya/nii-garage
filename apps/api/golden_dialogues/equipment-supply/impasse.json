@@ -1,0 +1,156 @@
+{
+  "schema_version": "1.0",
+  "dialogue_id": "equipment-supply:v1:impasse",
+  "scenario_version_id": "equipment-supply:v1",
+  "rubric_version": "0.1",
+  "case_type": "impasse",
+  "title": "Позиционный тупик при существующей ZOPA",
+  "learning_objective": "Показать ложный тупик: стороны остаются на ценовых позициях, хотя по всем пяти вопросам существует пространство соглашения.",
+  "messages": [
+    {
+      "sequence": 1,
+      "role": "participant",
+      "text": "Наше предложение: 9,2 млн рублей, 30 дней, предоплата 20%, гарантия 36 месяцев и штраф 0,5% за день.",
+      "annotations": []
+    },
+    {
+      "sequence": 2,
+      "role": "opponent",
+      "text": "Наши условия — 10,8 млн, 50 дней, 70% предоплаты, 12 месяцев гарантии и штраф 0,1%.",
+      "annotations": []
+    },
+    {
+      "sequence": 3,
+      "role": "participant",
+      "text": "Максимум 9,3 млн. Остальные наши условия сохраняются.",
+      "annotations": []
+    },
+    {
+      "sequence": 4,
+      "role": "opponent",
+      "text": "Цена ниже 9,5 млн для нас невозможна. Для производства особенно важен аванс не менее 40%; если обсудим пакет, по другим параметрам может появиться движение.",
+      "annotations": []
+    },
+    {
+      "sequence": 5,
+      "role": "participant",
+      "text": "Предоплату и другие параметры обсудим потом. Сейчас 9,3 млн — наше окончательное предложение.",
+      "annotations": [
+        {
+          "indicator_id": "N5",
+          "methodology_modules": ["active_listening", "integrative", "principled_negotiation"],
+          "rationale": "Покупатель прямо откладывает раскрытый критичный интерес и приглашение к пакетному обмену.",
+          "evidence": {
+            "message_sequence": 5,
+            "quote": "Предоплату и другие параметры обсудим потом"
+          }
+        }
+      ],
+      "alternative_participant_utterance": {
+        "text": "Понимаю, что ваша нижняя граница по цене — 9,5 млн, а рабочий аванс начинается с 40%. Если мы рассмотрим 40–50% предоплаты, какое улучшение по цене, сроку или гарантии вы сможете включить в пакет?",
+        "rationale": "Перефразирование проверяет границы, а открытый вопрос переводит спор о цене к обмену по вопросам с разными приоритетами.",
+        "expected_indicators": ["I1", "I3", "I7"],
+        "methodology_modules": ["active_listening", "integrative", "principled_negotiation"]
+      }
+    },
+    {
+      "sequence": 6,
+      "role": "opponent",
+      "text": "Без пакетного обсуждения остаёмся на 10,8 млн. По одной цене мы не договоримся.",
+      "annotations": []
+    },
+    {
+      "sequence": 7,
+      "role": "participant",
+      "text": "Тогда 9,4 млн — последнее слово. Выше не пойдём.",
+      "annotations": []
+    },
+    {
+      "sequence": 8,
+      "role": "opponent",
+      "text": "Это ниже нашей границы. Повторю: готов обсуждать аванс, срок и гарантию в общем пакете.",
+      "annotations": []
+    },
+    {
+      "sequence": 9,
+      "role": "participant",
+      "text": "Общий пакет сейчас не нужен. Раз по цене согласия нет, прекращаем переговоры.",
+      "annotations": [
+        {
+          "indicator_id": "N5",
+          "methodology_modules": ["integrative", "seven_elements"],
+          "rationale": "Повторное предложение исследовать многовопросную ZOPA отвергнуто без проверки.",
+          "evidence": {
+            "message_sequence": 9,
+            "quote": "Общий пакет сейчас не нужен"
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 10,
+      "role": "opponent",
+      "text": "Принято. Соглашение не достигнуто.",
+      "annotations": []
+    }
+  ],
+  "expected": {
+    "outcome": "impasse",
+    "process_quality": "weak",
+    "state_delta": {
+      "trust": -15,
+      "tension": 24,
+      "progress": 5,
+      "relationship": -14,
+      "concession_budget_delta": {"buyer": -2.0, "supplier": 0.0}
+    },
+    "score_band": {"minimum": 4, "maximum": 16},
+    "block_expectations": [
+      {
+        "block_id": "preparation",
+        "minimum_points": 2,
+        "maximum_points": 6,
+        "rationale": "Покупатель не нарушает reservation point сделкой, но не использует BATNA для обоснованного выхода и не выявляет интересы.",
+        "evidence_sequences": [1, 9]
+      },
+      {
+        "block_id": "process",
+        "minimum_points": 0,
+        "maximum_points": 2,
+        "rationale": "Нет открытых вопросов, перефразирования и объективных критериев.",
+        "evidence_sequences": [3, 5, 7]
+      },
+      {
+        "block_id": "value",
+        "minimum_points": 0,
+        "maximum_points": 1,
+        "rationale": "Ни одного пакетного варианта или условного обмена не создано, несмотря на прямое приглашение.",
+        "evidence_sequences": [5, 9]
+      },
+      {
+        "block_id": "result",
+        "minimum_points": 2,
+        "maximum_points": 8,
+        "rationale": "При существующей ZOPA покупатель завершает переговоры, не исследовав её; блок результата ограничен 10 баллами.",
+        "evidence_sequences": [9]
+      },
+      {
+        "block_id": "relationship",
+        "minimum_points": 3,
+        "maximum_points": 5,
+        "rationale": "Личных атак нет, но повторное игнорирование опасения снижает качество отношений.",
+        "evidence_sequences": [5, 9]
+      }
+    ],
+    "penalties": [
+      {
+        "penalty_id": "penalty.ignored_concern",
+        "minimum_occurrences": 2,
+        "maximum_occurrences": 2,
+        "rationale": "Дважды проигнорирован критичный интерес поставщика к авансу и пакетному обсуждению.",
+        "evidence_sequences": [5, 9]
+      }
+    ]
+  },
+  "methodological_explanation": "Тупик не объективен: сценарий содержит ZOPA по цене 9,5–10 млн, сроку 35–45 дней, предоплате 40–50%, гарантии 24 месяца и штрафу 0,2–0,3%. Поставщик дважды сигнализирует о возможности пакетного обмена, но покупатель торгуется только по цене и не задаёт ни одного вопроса. Выход не считается дисциплинированным: он не основан на сравнении доступного пакета с BATNA, а пространство соглашения остаётся неисследованным."
+}

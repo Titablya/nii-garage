@@ -1,0 +1,517 @@
+{
+  "$defs": {
+    "AlternativeParticipantUtterance": {
+      "additionalProperties": false,
+      "properties": {
+        "text": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        },
+        "rationale": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        },
+        "expected_indicators": {
+          "items": {
+            "$ref": "#/$defs/ObservableIndicator"
+          },
+          "minItems": 1,
+          "title": "Expected Indicators",
+          "type": "array"
+        },
+        "methodology_modules": {
+          "items": {
+            "$ref": "#/$defs/MethodologyModule"
+          },
+          "minItems": 1,
+          "title": "Methodology Modules",
+          "type": "array"
+        }
+      },
+      "required": [
+        "text",
+        "rationale",
+        "expected_indicators",
+        "methodology_modules"
+      ],
+      "title": "AlternativeParticipantUtterance",
+      "type": "object"
+    },
+    "BlockExpectation": {
+      "additionalProperties": false,
+      "properties": {
+        "block_id": {
+          "$ref": "#/$defs/RubricBlockId"
+        },
+        "minimum_points": {
+          "maximum": 100,
+          "minimum": 0,
+          "title": "Minimum Points",
+          "type": "integer"
+        },
+        "maximum_points": {
+          "maximum": 100,
+          "minimum": 0,
+          "title": "Maximum Points",
+          "type": "integer"
+        },
+        "rationale": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        },
+        "evidence_sequences": {
+          "items": {
+            "type": "integer"
+          },
+          "minItems": 1,
+          "title": "Evidence Sequences",
+          "type": "array"
+        }
+      },
+      "required": [
+        "block_id",
+        "minimum_points",
+        "maximum_points",
+        "rationale",
+        "evidence_sequences"
+      ],
+      "title": "BlockExpectation",
+      "type": "object"
+    },
+    "DialogueOutcome": {
+      "enum": [
+        "agreement",
+        "impasse",
+        "walk_away"
+      ],
+      "title": "DialogueOutcome",
+      "type": "string"
+    },
+    "DialogueRole": {
+      "enum": [
+        "participant",
+        "opponent"
+      ],
+      "title": "DialogueRole",
+      "type": "string"
+    },
+    "EvidenceReference": {
+      "additionalProperties": false,
+      "properties": {
+        "message_sequence": {
+          "minimum": 1,
+          "title": "Message Sequence",
+          "type": "integer"
+        },
+        "quote": {
+          "maxLength": 500,
+          "minLength": 1,
+          "title": "Quote",
+          "type": "string"
+        }
+      },
+      "required": [
+        "message_sequence",
+        "quote"
+      ],
+      "title": "EvidenceReference",
+      "type": "object"
+    },
+    "ExpectedEvaluation": {
+      "additionalProperties": false,
+      "properties": {
+        "outcome": {
+          "$ref": "#/$defs/DialogueOutcome"
+        },
+        "process_quality": {
+          "$ref": "#/$defs/ProcessQuality"
+        },
+        "state_delta": {
+          "$ref": "#/$defs/ExpectedStateDelta"
+        },
+        "score_band": {
+          "$ref": "#/$defs/ScoreBand"
+        },
+        "block_expectations": {
+          "items": {
+            "$ref": "#/$defs/BlockExpectation"
+          },
+          "minItems": 1,
+          "title": "Block Expectations",
+          "type": "array"
+        },
+        "penalties": {
+          "items": {
+            "$ref": "#/$defs/PenaltyExpectation"
+          },
+          "title": "Penalties",
+          "type": "array"
+        }
+      },
+      "required": [
+        "outcome",
+        "process_quality",
+        "state_delta",
+        "score_band",
+        "block_expectations"
+      ],
+      "title": "ExpectedEvaluation",
+      "type": "object"
+    },
+    "ExpectedStateDelta": {
+      "additionalProperties": false,
+      "properties": {
+        "trust": {
+          "maximum": 100,
+          "minimum": -100,
+          "title": "Trust",
+          "type": "integer"
+        },
+        "tension": {
+          "maximum": 100,
+          "minimum": -100,
+          "title": "Tension",
+          "type": "integer"
+        },
+        "progress": {
+          "maximum": 100,
+          "minimum": -100,
+          "title": "Progress",
+          "type": "integer"
+        },
+        "relationship": {
+          "maximum": 100,
+          "minimum": -100,
+          "title": "Relationship",
+          "type": "integer"
+        },
+        "concession_budget_delta": {
+          "maxProperties": 2,
+          "minProperties": 2,
+          "patternProperties": {
+            "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$": {
+              "type": "number"
+            }
+          },
+          "propertyNames": {
+            "maxLength": 64,
+            "minLength": 2
+          },
+          "title": "Concession Budget Delta",
+          "type": "object"
+        }
+      },
+      "required": [
+        "trust",
+        "tension",
+        "progress",
+        "relationship",
+        "concession_budget_delta"
+      ],
+      "title": "ExpectedStateDelta",
+      "type": "object"
+    },
+    "GoldenCaseType": {
+      "enum": [
+        "strong_success",
+        "weak",
+        "agreement_bad_process",
+        "strong_process_bad_result",
+        "impasse"
+      ],
+      "title": "GoldenCaseType",
+      "type": "string"
+    },
+    "GoldenDialogueMessage": {
+      "additionalProperties": false,
+      "properties": {
+        "sequence": {
+          "minimum": 1,
+          "title": "Sequence",
+          "type": "integer"
+        },
+        "role": {
+          "$ref": "#/$defs/DialogueRole"
+        },
+        "text": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        },
+        "annotations": {
+          "items": {
+            "$ref": "#/$defs/ObservableAnnotation"
+          },
+          "maxItems": 2,
+          "title": "Annotations",
+          "type": "array"
+        },
+        "alternative_participant_utterance": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/AlternativeParticipantUtterance"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "sequence",
+        "role",
+        "text"
+      ],
+      "title": "GoldenDialogueMessage",
+      "type": "object"
+    },
+    "MethodologyModule": {
+      "enum": [
+        "principled_negotiation",
+        "seven_elements",
+        "active_listening",
+        "integrative",
+        "distributive",
+        "meso",
+        "spin",
+        "nvc",
+        "anchoring",
+        "contingent_agreement",
+        "behavioral_change_stairway"
+      ],
+      "title": "MethodologyModule",
+      "type": "string"
+    },
+    "ObservableAnnotation": {
+      "additionalProperties": false,
+      "properties": {
+        "indicator_id": {
+          "$ref": "#/$defs/ObservableIndicator"
+        },
+        "methodology_modules": {
+          "items": {
+            "$ref": "#/$defs/MethodologyModule"
+          },
+          "title": "Methodology Modules",
+          "type": "array"
+        },
+        "rationale": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        },
+        "evidence": {
+          "$ref": "#/$defs/EvidenceReference"
+        }
+      },
+      "required": [
+        "indicator_id",
+        "rationale",
+        "evidence"
+      ],
+      "title": "ObservableAnnotation",
+      "type": "object"
+    },
+    "ObservableIndicator": {
+      "enum": [
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "I6",
+        "I7",
+        "I8",
+        "I9",
+        "I10",
+        "I11",
+        "I12",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5"
+      ],
+      "title": "ObservableIndicator",
+      "type": "string"
+    },
+    "PenaltyExpectation": {
+      "additionalProperties": false,
+      "properties": {
+        "penalty_id": {
+          "$ref": "#/$defs/RubricPenaltyId"
+        },
+        "minimum_occurrences": {
+          "maximum": 100,
+          "minimum": 0,
+          "title": "Minimum Occurrences",
+          "type": "integer"
+        },
+        "maximum_occurrences": {
+          "maximum": 100,
+          "minimum": 0,
+          "title": "Maximum Occurrences",
+          "type": "integer"
+        },
+        "rationale": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        },
+        "evidence_sequences": {
+          "items": {
+            "type": "integer"
+          },
+          "title": "Evidence Sequences",
+          "type": "array"
+        }
+      },
+      "required": [
+        "penalty_id",
+        "minimum_occurrences",
+        "maximum_occurrences",
+        "rationale"
+      ],
+      "title": "PenaltyExpectation",
+      "type": "object"
+    },
+    "ProcessQuality": {
+      "enum": [
+        "strong",
+        "weak",
+        "mixed"
+      ],
+      "title": "ProcessQuality",
+      "type": "string"
+    },
+    "RubricBlockId": {
+      "enum": [
+        "preparation",
+        "process",
+        "value",
+        "result",
+        "relationship"
+      ],
+      "title": "RubricBlockId",
+      "type": "string"
+    },
+    "RubricPenaltyId": {
+      "enum": [
+        "penalty.personal_attack",
+        "penalty.threat",
+        "penalty.unilateral_concession",
+        "penalty.fabricated_fact",
+        "penalty.ignored_concern"
+      ],
+      "title": "RubricPenaltyId",
+      "type": "string"
+    },
+    "ScoreBand": {
+      "additionalProperties": false,
+      "properties": {
+        "minimum": {
+          "maximum": 100,
+          "minimum": 0,
+          "title": "Minimum",
+          "type": "integer"
+        },
+        "maximum": {
+          "maximum": 100,
+          "minimum": 0,
+          "title": "Maximum",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "minimum",
+        "maximum"
+      ],
+      "title": "ScoreBand",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "One labelled reference negotiation used for evaluation and learning.",
+  "properties": {
+    "schema_version": {
+      "const": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "dialogue_id": {
+      "maxLength": 120,
+      "pattern": "^[a-z][a-z0-9._-]*:v[1-9][0-9]*:(?:strong_success|weak|agreement_bad_process|strong_process_bad_result|impasse)$",
+      "title": "Dialogue Id",
+      "type": "string"
+    },
+    "scenario_version_id": {
+      "maxLength": 80,
+      "pattern": "^[a-z][a-z0-9._-]*:v[1-9][0-9]*$",
+      "title": "Scenario Version Id",
+      "type": "string"
+    },
+    "rubric_version": {
+      "maxLength": 16,
+      "pattern": "^[0-9]+\\.[0-9]+$",
+      "title": "Rubric Version",
+      "type": "string"
+    },
+    "case_type": {
+      "$ref": "#/$defs/GoldenCaseType"
+    },
+    "title": {
+      "maxLength": 2000,
+      "minLength": 1,
+      "title": "Title",
+      "type": "string"
+    },
+    "learning_objective": {
+      "maxLength": 2000,
+      "minLength": 1,
+      "title": "Learning Objective",
+      "type": "string"
+    },
+    "messages": {
+      "items": {
+        "$ref": "#/$defs/GoldenDialogueMessage"
+      },
+      "maxItems": 14,
+      "minItems": 8,
+      "title": "Messages",
+      "type": "array"
+    },
+    "expected": {
+      "$ref": "#/$defs/ExpectedEvaluation"
+    },
+    "methodological_explanation": {
+      "maxLength": 2000,
+      "minLength": 1,
+      "title": "Methodological Explanation",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "dialogue_id",
+    "scenario_version_id",
+    "rubric_version",
+    "case_type",
+    "title",
+    "learning_objective",
+    "messages",
+    "expected",
+    "methodological_explanation"
+  ],
+  "title": "GoldenDialogueDefinition",
+  "type": "object"
+}

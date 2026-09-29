@@ -1,0 +1,182 @@
+{
+  "schema_version": "1.0",
+  "dialogue_id": "equipment-supply:v1:weak",
+  "scenario_version_id": "equipment-supply:v1",
+  "rubric_version": "0.1",
+  "case_type": "weak",
+  "title": "Быстрое согласие хуже собственных границ",
+  "learning_objective": "Научить распознавать вежливую, но методически слабую беседу: без исследования интересов, критериев, пакетного обмена и сравнения результата с BATNA.",
+  "messages": [
+    {
+      "sequence": 1,
+      "role": "participant",
+      "text": "Нам нужна минимальная цена. Давайте 9,2 млн рублей, поставка за 30 дней и предоплата 20%.",
+      "annotations": []
+    },
+    {
+      "sequence": 2,
+      "role": "opponent",
+      "text": "Для нас это неприемлемо. Предлагаю 10,8 млн, 50 дней, предоплату 70%, гарантию 12 месяцев и штраф 0,1%. Предоплата особенно важна для финансирования комплектующих.",
+      "annotations": []
+    },
+    {
+      "sequence": 3,
+      "role": "participant",
+      "text": "Хорошо, тогда 10,3 млн и предоплата 60%. Давайте просто быстрее закроем вопрос.",
+      "annotations": [
+        {
+          "indicator_id": "N3",
+          "methodology_modules": ["distributive", "seven_elements"],
+          "rationale": "Покупатель одновременно ухудшает цену и аванс без встречного условия и без объяснения.",
+          "evidence": {
+            "message_sequence": 3,
+            "quote": "тогда 10,3 млн и предоплата 60%"
+          }
+        },
+        {
+          "indicator_id": "N5",
+          "methodology_modules": ["active_listening", "principled_negotiation"],
+          "rationale": "Сообщённая причина необходимости предоплаты не уточнена и не превращена в предмет обмена.",
+          "evidence": {
+            "message_sequence": 3,
+            "quote": "Давайте просто быстрее закроем вопрос"
+          }
+        }
+      ],
+      "alternative_participant_utterance": {
+        "text": "Слышу, что аванс нужен для финансирования комплектующих. Какой минимальный уровень предоплаты снимает это ограничение и что вы готовы изменить в цене или сроке, если мы его обеспечим?",
+        "rationale": "Вместо двух безусловных уступок покупатель признаёт опасение, исследует границу интереса и связывает возможную уступку со встречной ценностью.",
+        "expected_indicators": ["I1", "I3", "I7"],
+        "methodology_modules": ["active_listening", "principled_negotiation", "integrative"]
+      }
+    },
+    {
+      "sequence": 4,
+      "role": "opponent",
+      "text": "Могу предложить 10,2 млн, поставку через 48 дней и предоплату 55%. Гарантия 12 месяцев, штраф 0,1%.",
+      "annotations": []
+    },
+    {
+      "sequence": 5,
+      "role": "participant",
+      "text": "Пусть будет 10,2 млн, 55% и 48 дней. Добавьте хотя бы гарантию 18 месяцев.",
+      "annotations": [
+        {
+          "indicator_id": "N3",
+          "methodology_modules": ["distributive", "seven_elements"],
+          "rationale": "Покупатель принимает три ухудшения относительно своих границ, не получая равноценной компенсации; 18 месяцев также ниже его минимальной гарантии.",
+          "evidence": {
+            "message_sequence": 5,
+            "quote": "Пусть будет 10,2 млн, 55% и 48 дней"
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 6,
+      "role": "opponent",
+      "text": "Согласен на 18 месяцев гарантии при остальных названных условиях и штрафе 0,1%.",
+      "annotations": []
+    },
+    {
+      "sequence": 7,
+      "role": "participant",
+      "text": "Хорошо, принимаю. Главное, что мы договорились.",
+      "annotations": [
+        {
+          "indicator_id": "N5",
+          "methodology_modules": ["seven_elements", "principled_negotiation"],
+          "rationale": "Покупатель игнорирует сразу несколько критичных отклонений от собственных reservation points и не сравнивает соглашение с BATNA.",
+          "evidence": {
+            "message_sequence": 7,
+            "quote": "Главное, что мы договорились"
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 8,
+      "role": "opponent",
+      "text": "Подтвердите полный пакет: 10,2 млн рублей, 48 дней, предоплата 55%, гарантия 18 месяцев и штраф 0,1% за день.",
+      "annotations": []
+    },
+    {
+      "sequence": 9,
+      "role": "participant",
+      "text": "Подтверждаю этот пакет без дополнительных условий.",
+      "annotations": []
+    },
+    {
+      "sequence": 10,
+      "role": "opponent",
+      "text": "Договорённость зафиксирована.",
+      "annotations": []
+    }
+  ],
+  "expected": {
+    "outcome": "agreement",
+    "process_quality": "weak",
+    "state_delta": {
+      "trust": -4,
+      "tension": -3,
+      "progress": 100,
+      "relationship": -6,
+      "concession_budget_delta": {"buyer": -36.0, "supplier": -4.0}
+    },
+    "score_band": {"minimum": 0, "maximum": 5},
+    "block_expectations": [
+      {
+        "block_id": "preparation",
+        "minimum_points": 0,
+        "maximum_points": 3,
+        "rationale": "Нарушены ограничения по цене, сроку, авансу и гарантии; интерес поставщика не исследован.",
+        "evidence_sequences": [3, 5, 7, 9]
+      },
+      {
+        "block_id": "process",
+        "minimum_points": 0,
+        "maximum_points": 2,
+        "rationale": "Нет вопросов, содержательного слушания или объективных критериев.",
+        "evidence_sequences": [1, 3, 5]
+      },
+      {
+        "block_id": "value",
+        "minimum_points": 0,
+        "maximum_points": 2,
+        "rationale": "Новые варианты и взаимный обмен не созданы; уступки односторонние.",
+        "evidence_sequences": [3, 5]
+      },
+      {
+        "block_id": "result",
+        "minimum_points": 0,
+        "maximum_points": 4,
+        "rationale": "Сделка хуже BATNA и нарушает несколько reservation points, поэтому действует ограничение блока результата.",
+        "evidence_sequences": [7, 9]
+      },
+      {
+        "block_id": "relationship",
+        "minimum_points": 3,
+        "maximum_points": 5,
+        "rationale": "Тон формально вежливый, но критичные опасения и последствия условий не обрабатываются.",
+        "evidence_sequences": [3, 7]
+      }
+    ],
+    "penalties": [
+      {
+        "penalty_id": "penalty.unilateral_concession",
+        "minimum_occurrences": 2,
+        "maximum_occurrences": 2,
+        "rationale": "Дважды отдана существенная ценность без встречного условия.",
+        "evidence_sequences": [3, 5]
+      },
+      {
+        "penalty_id": "penalty.ignored_concern",
+        "minimum_occurrences": 1,
+        "maximum_occurrences": 2,
+        "rationale": "Причина требования аванса и затем собственные критичные ограничения оставлены без исследования.",
+        "evidence_sequences": [3, 7]
+      }
+    ]
+  },
+  "methodological_explanation": "Формальная скорость достижения согласия не является качеством переговоров. Пакет 10,2 млн, 48 дней, 55%, 18 месяцев и 0,1% выходит за границы покупателя по всем пяти вопросам и хуже его BATNA: резервная линия стоит 9,8 млн и поставляется через 50 дней. В разговоре отсутствуют объективные критерии, ZOPA не исследуется, интерес к финансированию комплектующих не превращается в обмен, а уступки делаются без условий."
+}

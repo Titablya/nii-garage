@@ -1,0 +1,479 @@
+{
+  "corpus_version": "methodology-v1",
+  "provenance": {
+    "label_source": "hand_authored_regression_expectations",
+    "independent_expert_raters": 0,
+    "expert_annotation_count": 0,
+    "inter_rater_agreement": null
+  },
+  "coverage_gap_without_native_scenario": [],
+  "utterances": [
+    {
+      "id": "equipment-interest-question",
+      "scenario_id": "equipment-supply",
+      "methodologies": ["principled_negotiation"],
+      "text": "Какие ограничения по закупке комплектующих для вас важнее всего?",
+      "required_tags": ["open_question"],
+      "forbidden_tags": ["active_listening", "threat", "personal_attack"]
+    },
+    {
+      "id": "equipment-substantive-listening",
+      "scenario_id": "equipment-supply",
+      "methodologies": ["active_listening"],
+      "text": "Правильно понимаю: вас беспокоит кассовый разрыв до закупки комплектующих?",
+      "required_tags": ["active_listening"],
+      "forbidden_tags": ["threat", "personal_attack"]
+    },
+    {
+      "id": "equipment-formal-understanding-is-not-listening",
+      "scenario_id": "equipment-supply",
+      "methodologies": ["active_listening"],
+      "text": "Я вас понял.",
+      "required_tags": [],
+      "forbidden_tags": ["active_listening"]
+    },
+    {
+      "id": "equipment-market-range-is-evidence-not-offer",
+      "scenario_id": "equipment-supply",
+      "methodologies": ["seven_elements", "distributive", "anchoring"],
+      "text": "Рыночный диапазон сопоставимых линий — от 9 до 11 млн рублей.",
+      "required_tags": ["objective_criterion"],
+      "forbidden_tags": ["option", "anchor"],
+      "issue_values": {}
+    },
+    {
+      "id": "equipment-russian-decimal-anchor",
+      "scenario_id": "equipment-supply",
+      "methodologies": ["distributive", "anchoring"],
+      "text": "По рыночному диапазону 9–11 млн рублей предлагаю исходную цену 9,8 млн рублей.",
+      "required_tags": ["objective_criterion", "option", "anchor"],
+      "forbidden_tags": ["meso"],
+      "issue_values": {"price": 9800000.0}
+    },
+    {
+      "id": "equipment-real-two-package-choice",
+      "scenario_id": "equipment-supply",
+      "methodologies": ["integrative", "meso"],
+      "text": "Предлагаю два равноценных пакета на выбор. Первый: цена 9,7 млн рублей, поставка за 45 дней, предоплата 45%, гарантия 24 месяца, штраф за задержку 0,3% в день. Второй: цена 9,9 млн рублей, поставка за 38 дней, предоплата 40%, гарантия 24 месяца, штраф за задержку 0,2% в день. Какой баланс вам ближе?",
+      "required_tags": ["option", "meso"],
+      "forbidden_tags": ["threat"],
+      "equivalent_packages": [
+        {"price": 9700000.0, "delivery_days": 45.0, "prepayment": 45.0, "warranty_months": 24.0, "delay_penalty": 0.3},
+        {"price": 9900000.0, "delivery_days": 38.0, "prepayment": 40.0, "warranty_months": 24.0, "delay_penalty": 0.2}
+      ],
+      "max_proposer_utility_spread": 2.0
+    },
+    {
+      "id": "equipment-repeated-package-is-not-meso",
+      "scenario_id": "equipment-supply",
+      "methodologies": ["meso"],
+      "text": "Предлагаю два пакета на выбор. Первый: цена 9,8 млн рублей, поставка за 40 дней. Второй: цена 9,8 млн рублей, поставка за 40 дней.",
+      "required_tags": ["option"],
+      "forbidden_tags": ["meso"]
+    },
+    {
+      "id": "equipment-two-price-points-are-not-meso",
+      "scenario_id": "equipment-supply",
+      "methodologies": ["meso", "distributive"],
+      "text": "Предлагаю два варианта цены: 9,7 или 9,8 млн рублей; другие условия пока не обсуждаем.",
+      "required_tags": ["option"],
+      "forbidden_tags": ["meso"]
+    },
+    {
+      "id": "equipment-measurable-contingency",
+      "scenario_id": "equipment-supply",
+      "methodologies": ["contingent_agreement", "integrative"],
+      "text": "Если поставка задержится более чем на 40 дней, то штраф за просрочку составит 0,25% цены за каждый день задержки.",
+      "required_tags": ["conditional_agreement"],
+      "forbidden_tags": ["threat"],
+      "issue_values": {"delivery_days": 40.0, "delay_penalty": 0.25}
+    },
+    {
+      "id": "equipment-logistics-if-then-is-not-exchange",
+      "scenario_id": "equipment-supply",
+      "methodologies": ["contingent_agreement"],
+      "text": "Если будет время, то пришлите файл завтра.",
+      "required_tags": [],
+      "forbidden_tags": ["conditional_agreement"]
+    },
+    {
+      "id": "equipment-direct-threat",
+      "scenario_id": "equipment-supply",
+      "methodologies": ["principled_negotiation"],
+      "text": "Иначе я сообщу руководству, и будут последствия.",
+      "required_tags": ["threat"],
+      "forbidden_tags": []
+    },
+    {
+      "id": "equipment-quoted-threat-is-not-speaker-threat",
+      "scenario_id": "equipment-supply",
+      "methodologies": ["principled_negotiation"],
+      "text": "Вы сказали: «Иначе я сообщу руководству». Давайте обсудим срок без давления.",
+      "required_tags": [],
+      "forbidden_tags": ["threat"]
+    },
+    {
+      "id": "equipment-quoted-insult-is-not-speaker-attack",
+      "scenario_id": "equipment-supply",
+      "methodologies": ["principled_negotiation"],
+      "text": "Вы сказали: «вы безответственные». Я хочу понять ваши опасения.",
+      "required_tags": [],
+      "forbidden_tags": ["personal_attack"]
+    },
+    {
+      "id": "equipment-quoted-question-is-not-speaker-question",
+      "scenario_id": "equipment-supply",
+      "methodologies": ["active_listening"],
+      "text": "Вы спросили: «Какие для вас условия важны?» Я отвечу после уточнения.",
+      "required_tags": [],
+      "forbidden_tags": ["open_question"]
+    },
+    {
+      "id": "equipment-quoted-listening-is-not-speaker-listening",
+      "scenario_id": "equipment-supply",
+      "methodologies": ["active_listening"],
+      "text": "Вы сказали: «правильно ли я понимаю, что для вас важен срок?» Я отвечу на это.",
+      "required_tags": [],
+      "forbidden_tags": ["active_listening", "open_question"]
+    },
+    {
+      "id": "equipment-quoted-price-is-not-speaker-offer",
+      "scenario_id": "equipment-supply",
+      "methodologies": ["distributive", "anchoring"],
+      "text": "Вы назвали «12 млн рублей», но я прошу объяснить цену.",
+      "required_tags": [],
+      "forbidden_tags": ["option", "anchor"],
+      "issue_values": {}
+    },
+    {
+      "id": "equipment-quoted-acceptance-is-not-speaker-acceptance",
+      "scenario_id": "equipment-supply",
+      "methodologies": ["principled_negotiation"],
+      "text": "Вы сказали: «договорились». Я пока анализирую детали.",
+      "required_tags": [],
+      "forbidden_tags": ["accept"]
+    },
+    {
+      "id": "equipment-quoted-walkaway-is-not-speaker-walkaway",
+      "scenario_id": "equipment-supply",
+      "methodologies": ["principled_negotiation"],
+      "text": "Вы сказали: «сделки не будет». Предлагаю продолжить.",
+      "required_tags": ["option"],
+      "forbidden_tags": ["walk_away"]
+    },
+    {
+      "id": "resources-russian-word-number-package",
+      "scenario_id": "project-resources",
+      "methodologies": ["integrative", "seven_elements"],
+      "text": "Предлагаю бюджет шесть млн рублей, трёх специалистов, старт через 20 дней и четыре часа отчётности в неделю.",
+      "required_tags": ["option"],
+      "forbidden_tags": ["meso"],
+      "issue_values": {"budget": 6.0, "specialists": 3.0, "start_days": 20.0, "reporting_hours": 4.0}
+    },
+    {
+      "id": "resources-spin-problem-question",
+      "scenario_id": "project-resources",
+      "methodologies": ["spin"],
+      "text": "Какие ограничения по двум обязательным операционным программам нужно учесть при выделении команды?",
+      "required_tags": ["open_question"],
+      "forbidden_tags": ["threat"]
+    },
+    {
+      "id": "conflict-nvc-observation-feeling-need-request",
+      "scenario_id": "random-roadmap-conflict",
+      "methodologies": ["nvc"],
+      "text": "Вчера на встрече вы перенесли дату согласования без обсуждения с командой. Я тревожусь, потому что мне важно сохранить предсказуемость для обеих команд. Прошу сегодня вместе сверить причины переноса и выбрать исполнимый срок.",
+      "required_tags": [],
+      "forbidden_tags": ["personal_attack", "threat"]
+    },
+    {
+      "id": "conflict-pseudo-nvc-blame-and-demand",
+      "scenario_id": "random-roadmap-conflict",
+      "methodologies": ["nvc"],
+      "text": "Я наблюдаю, что вы безответственный руководитель. Я чувствую, что вы специально мешаете работе. Мне важно, чтобы вы перестали спорить. Прошу принять мой план, иначе сообщу руководству.",
+      "required_tags": ["personal_attack", "threat"],
+      "forbidden_tags": ["commitment"]
+    }
+  ],
+  "dialogues": [
+    {
+      "id": "spin-relevant-question-earns-credit",
+      "scenario_id": "project-resources",
+      "methodologies": ["spin"],
+      "messages": [
+        {"role": "participant", "text": "Какие ограничения по двум обязательным операционным программам нужно учесть при выделении команды?"}
+      ],
+      "required_strengths": ["I1", "I10"],
+      "forbidden_strengths": [],
+      "required_penalties": [],
+      "forbidden_penalties": [],
+      "criterion_points": {"value.modules": {"minimum": 4}}
+    },
+    {
+      "id": "spin-biographical-question-earns-no-credit",
+      "scenario_id": "project-resources",
+      "methodologies": ["spin"],
+      "messages": [
+        {"role": "participant", "text": "Как вас зовут?"}
+      ],
+      "required_strengths": [],
+      "forbidden_strengths": ["I1", "I10"],
+      "required_penalties": [],
+      "forbidden_penalties": [],
+      "criterion_points": {"process.questions": {"maximum": 0}, "value.modules": {"maximum": 0}}
+    },
+    {
+      "id": "meso-distinct-packages-earn-credit",
+      "scenario_id": "equipment-supply",
+      "methodologies": ["meso"],
+      "messages": [
+        {"role": "participant", "text": "Предлагаю два равноценных пакета на выбор. Первый: цена 9,7 млн рублей, поставка за 45 дней, предоплата 45%, гарантия 24 месяца, штраф за задержку 0,3% в день. Второй: цена 9,9 млн рублей, поставка за 38 дней, предоплата 40%, гарантия 24 месяца, штраф за задержку 0,2% в день. Какой баланс вам ближе?"}
+      ],
+      "required_strengths": ["I8"],
+      "forbidden_strengths": [],
+      "required_penalties": [],
+      "forbidden_penalties": [],
+      "criterion_points": {"value.modules": {"minimum": 4}}
+    },
+    {
+      "id": "meso-repeated-package-earns-no-credit",
+      "scenario_id": "equipment-supply",
+      "methodologies": ["meso"],
+      "messages": [
+        {"role": "participant", "text": "Предлагаю два пакета на выбор. Первый: цена 9,8 млн рублей, поставка за 40 дней. Второй: цена 9,8 млн рублей, поставка за 40 дней."}
+      ],
+      "required_strengths": [],
+      "forbidden_strengths": ["I8"],
+      "required_penalties": [],
+      "forbidden_penalties": [],
+      "criterion_points": {"value.modules": {"maximum": 0}}
+    },
+    {
+      "id": "opponent-threat-does-not-penalize-participant",
+      "scenario_id": "equipment-supply",
+      "methodologies": ["principled_negotiation", "active_listening"],
+      "messages": [
+        {"role": "opponent", "text": "Иначе я сообщу руководству, и будут последствия."},
+        {"role": "participant", "text": "Правильно понимаю, что вас беспокоит срок поставки?"}
+      ],
+      "required_strengths": ["I3"],
+      "forbidden_strengths": [],
+      "required_penalties": [],
+      "forbidden_penalties": ["penalty.threat"],
+      "criterion_points": {}
+    },
+    {
+      "id": "participant-threat-is-penalized",
+      "scenario_id": "equipment-supply",
+      "methodologies": ["principled_negotiation"],
+      "messages": [
+        {"role": "participant", "text": "Иначе я сообщу руководству, и будут последствия."}
+      ],
+      "required_strengths": [],
+      "forbidden_strengths": [],
+      "required_penalties": ["penalty.threat"],
+      "forbidden_penalties": [],
+      "criterion_points": {}
+    },
+    {
+      "id": "quoted-opponent-threat-is-not-penalized",
+      "scenario_id": "equipment-supply",
+      "methodologies": ["principled_negotiation"],
+      "messages": [
+        {"role": "opponent", "text": "Иначе я сообщу руководству, и будут последствия."},
+        {"role": "participant", "text": "Вы сказали: «Иначе я сообщу руководству». Давайте обсудим срок без давления."}
+      ],
+      "required_strengths": [],
+      "forbidden_strengths": [],
+      "required_penalties": [],
+      "forbidden_penalties": ["penalty.threat"],
+      "criterion_points": {}
+    },
+    {
+      "id": "quoted-opponent-insult-is-not-penalized",
+      "scenario_id": "equipment-supply",
+      "methodologies": ["principled_negotiation"],
+      "messages": [
+        {"role": "opponent", "text": "Вы безответственные."},
+        {"role": "participant", "text": "Вы сказали: «вы безответственные». Я хочу понять ваши опасения."}
+      ],
+      "required_strengths": [],
+      "forbidden_strengths": [],
+      "required_penalties": [],
+      "forbidden_penalties": ["penalty.personal_attack"],
+      "criterion_points": {}
+    },
+    {
+      "id": "quoted-method-language-earns-no-participant-credit",
+      "scenario_id": "equipment-supply",
+      "methodologies": ["seven_elements", "integrative"],
+      "messages": [
+        {"role": "opponent", "text": "Давайте решим общую задачу и обсудим взаимный обмен, потому что ваши интересы важны."},
+        {"role": "participant", "text": "Вы сказали: «Давайте решим общую задачу и обсудим взаимный обмен, потому что ваши интересы важны». Я уточню детали позже."}
+      ],
+      "required_strengths": [],
+      "forbidden_strengths": ["I2", "I4", "I7"],
+      "required_penalties": [],
+      "forbidden_penalties": [],
+      "criterion_points": {}
+    },
+    {
+      "id": "quoted-nvc-language-earns-no-participant-credit",
+      "scenario_id": "random-roadmap-conflict",
+      "methodologies": ["nvc"],
+      "messages": [
+        {"role": "opponent", "text": "Вчера на встрече я тревожился, потому что мне важно согласование. Прошу обсудить срок."},
+        {"role": "participant", "text": "Вы сказали: «Вчера на встрече я тревожился, потому что мне важно согласование. Прошу обсудить срок». Я услышал ваш ответ."}
+      ],
+      "required_strengths": [],
+      "forbidden_strengths": ["I11"],
+      "required_penalties": [],
+      "forbidden_penalties": [],
+      "criterion_points": {}
+    },
+    {
+      "id": "unanswered-concern-is-penalized",
+      "scenario_id": "equipment-supply",
+      "methodologies": ["active_listening"],
+      "messages": [
+        {"role": "opponent", "text": "Меня беспокоит риск задержки поставки."},
+        {"role": "participant", "text": "Других вариантов не будет."}
+      ],
+      "required_strengths": [],
+      "forbidden_strengths": [],
+      "required_penalties": ["penalty.ignored_concern"],
+      "forbidden_penalties": [],
+      "criterion_points": {}
+    },
+    {
+      "id": "answered-concern-is-not-penalized",
+      "scenario_id": "equipment-supply",
+      "methodologies": ["active_listening"],
+      "messages": [
+        {"role": "opponent", "text": "Меня беспокоит риск задержки поставки."},
+        {"role": "participant", "text": "Правильно понимаю: вас беспокоит риск задержки? Какой срок поставки вам нужен?"}
+      ],
+      "required_strengths": ["I3"],
+      "forbidden_strengths": [],
+      "required_penalties": [],
+      "forbidden_penalties": ["penalty.ignored_concern"],
+      "criterion_points": {}
+    },
+    {
+      "id": "unsupported-claim-is-penalized",
+      "scenario_id": "project-resources",
+      "methodologies": ["seven_elements"],
+      "messages": [
+        {"role": "participant", "text": "Ресурсы уже утверждены советом директоров, обсуждать нечего."}
+      ],
+      "required_strengths": [],
+      "forbidden_strengths": [],
+      "required_penalties": ["penalty.fabricated_fact"],
+      "forbidden_penalties": [],
+      "criterion_points": {}
+    },
+    {
+      "id": "conflict-complete-nvc-earns-credit",
+      "scenario_id": "random-roadmap-conflict",
+      "methodologies": ["nvc"],
+      "messages": [
+        {"role": "opponent", "text": "Вы опять поменяли дорожную карту, и продажи не смогут выполнить обещание клиенту."},
+        {"role": "participant", "text": "Вчера на встрече вы перенесли дату согласования без обсуждения с командой. Я тревожусь, потому что мне важно сохранить предсказуемость для обеих команд. Прошу сегодня вместе сверить причины переноса и выбрать исполнимый срок."}
+      ],
+      "required_strengths": ["I11"],
+      "forbidden_strengths": [],
+      "required_penalties": [],
+      "forbidden_penalties": ["penalty.personal_attack", "penalty.threat"],
+      "criterion_points": {"value.modules": {"minimum": 4}}
+    },
+    {
+      "id": "conflict-pseudo-nvc-earns-no-credit",
+      "scenario_id": "random-roadmap-conflict",
+      "methodologies": ["nvc"],
+      "messages": [
+        {"role": "opponent", "text": "Меня беспокоит, как изменение приоритетов повлияет на клиентов."},
+        {"role": "participant", "text": "Я наблюдаю, что вы безответственный руководитель. Я чувствую, что вы специально мешаете работе. Мне важно, чтобы вы перестали спорить. Прошу принять мой план, иначе сообщу руководству."}
+      ],
+      "required_strengths": [],
+      "forbidden_strengths": ["I11", "I12"],
+      "required_penalties": ["penalty.personal_attack", "penalty.threat"],
+      "forbidden_penalties": [],
+      "criterion_points": {"value.modules": {"maximum": 0}}
+    },
+    {
+      "id": "non-conflict-nvc-phrase-earns-no-module-credit",
+      "scenario_id": "project-resources",
+      "methodologies": ["seven_elements"],
+      "messages": [
+        {"role": "participant", "text": "Вчера на встрече вы перенесли дату согласования без обсуждения с командой. Я тревожусь, потому что мне важно сохранить предсказуемость для обеих команд. Прошу сегодня вместе сверить причины переноса и выбрать исполнимый срок."}
+      ],
+      "required_strengths": [],
+      "forbidden_strengths": ["I11"],
+      "required_penalties": [],
+      "forbidden_penalties": [],
+      "criterion_points": {"value.modules": {"maximum": 0}}
+    },
+    {
+      "id": "conflict-stairway-ordered-listening-to-influence",
+      "scenario_id": "random-roadmap-conflict",
+      "methodologies": ["behavioral_change_stairway", "active_listening"],
+      "messages": [
+        {"role": "opponent", "text": "После переноса задач продажи рискуют не выполнить обещание клиентам."},
+        {"role": "participant", "text": "Правильно понимаю: для вас критичен риск невыполнения обещаний клиентам."},
+        {"role": "opponent", "text": "Да, два клиента ожидают результат по старым датам."},
+        {"role": "participant", "text": "Я слышу, что после переноса вам трудно подтвердить прежние даты клиентам. Понимаю ваше беспокойство."},
+        {"role": "opponent", "text": "Спасибо, вы меня услышали; можно обсудить порядок задач."},
+        {"role": "participant", "text": "Давайте вместе решим общую задачу: сегодня сверим клиентские даты и согласуем исполнимый порядок задач."}
+      ],
+      "required_strengths": ["I3", "I4", "I13"],
+      "forbidden_strengths": [],
+      "required_penalties": [],
+      "forbidden_penalties": ["penalty.personal_attack", "penalty.threat"],
+      "criterion_points": {"value.modules": {"minimum": 4}},
+      "minimum_trust_delta": 1
+    },
+    {
+      "id": "conflict-stairway-empathy-only-has-no-progression",
+      "scenario_id": "random-roadmap-conflict",
+      "methodologies": ["behavioral_change_stairway", "active_listening"],
+      "messages": [
+        {"role": "opponent", "text": "После переноса задач продажи рискуют не выполнить обещание клиентам."},
+        {"role": "participant", "text": "Правильно понимаю: для вас критичен риск невыполнения обещаний клиентам."}
+      ],
+      "required_strengths": ["I3"],
+      "forbidden_strengths": ["I13"],
+      "required_penalties": [],
+      "forbidden_penalties": [],
+      "criterion_points": {"value.modules": {"maximum": 0}}
+    },
+    {
+      "id": "conflict-stairway-pressure-before-listening-has-no-progression",
+      "scenario_id": "random-roadmap-conflict",
+      "methodologies": ["behavioral_change_stairway"],
+      "messages": [
+        {"role": "participant", "text": "Примите мой порядок задач сейчас, иначе сообщу руководству."},
+        {"role": "opponent", "text": "Давление не помогает решить риск для клиентов."},
+        {"role": "participant", "text": "Правильно понимаю: для вас критичен риск невыполнения обещаний клиентам."}
+      ],
+      "required_strengths": ["I3"],
+      "forbidden_strengths": ["I13"],
+      "required_penalties": ["penalty.threat"],
+      "forbidden_penalties": [],
+      "criterion_points": {"value.modules": {"maximum": 0}}
+    }
+  ],
+  "benefit_directions": [
+    {"id": "equipment-price", "scenario_id": "equipment-supply", "issue_id": "price", "lower_value": 9500000.0, "higher_value": 10000000.0, "lower_favors_role": "buyer", "higher_favors_role": "supplier"},
+    {"id": "equipment-prepayment", "scenario_id": "equipment-supply", "issue_id": "prepayment", "lower_value": 40.0, "higher_value": 50.0, "lower_favors_role": "buyer", "higher_favors_role": "supplier"},
+    {"id": "resources-budget", "scenario_id": "project-resources", "issue_id": "budget", "lower_value": 5.5, "higher_value": 7.0, "lower_favors_role": "division_director", "higher_favors_role": "project_lead"},
+    {"id": "resources-specialists", "scenario_id": "project-resources", "issue_id": "specialists", "lower_value": 3.0, "higher_value": 4.0, "lower_favors_role": "division_director", "higher_favors_role": "project_lead"},
+    {"id": "resources-start", "scenario_id": "project-resources", "issue_id": "start_days", "lower_value": 20.0, "higher_value": 30.0, "lower_favors_role": "project_lead", "higher_favors_role": "division_director"},
+    {"id": "resources-reporting", "scenario_id": "project-resources", "issue_id": "reporting_hours", "lower_value": 3.0, "higher_value": 5.0, "lower_favors_role": "project_lead", "higher_favors_role": "division_director"}
+  ],
+  "boundary_offers": [
+    {"id": "equipment-price-below-supplier-limit", "scenario_id": "equipment-supply", "issue_id": "price", "value": 9400000.0, "violated_role": "supplier"},
+    {"id": "equipment-price-above-buyer-limit", "scenario_id": "equipment-supply", "issue_id": "price", "value": 10100000.0, "violated_role": "buyer"},
+    {"id": "resources-budget-below-lead-limit", "scenario_id": "project-resources", "issue_id": "budget", "value": 5.4, "violated_role": "project_lead"},
+    {"id": "resources-budget-above-director-limit", "scenario_id": "project-resources", "issue_id": "budget", "value": 7.1, "violated_role": "division_director"}
+  ]
+}

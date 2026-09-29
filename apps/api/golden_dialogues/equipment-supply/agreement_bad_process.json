@@ -1,0 +1,218 @@
+{
+  "schema_version": "1.0",
+  "dialogue_id": "equipment-supply:v1:agreement_bad_process",
+  "scenario_version_id": "equipment-supply:v1",
+  "rubric_version": "0.1",
+  "case_type": "agreement_bad_process",
+  "title": "Хороший пакет, разрушительный процесс",
+  "learning_objective": "Отделить качество итогового пакета от качества поведения: выгодное соглашение не оправдывает личные атаки, давление и игнорирование интересов контрагента.",
+  "messages": [
+    {
+      "sequence": 1,
+      "role": "participant",
+      "text": "Рыночный диапазон сопоставимых линий — 9–11 млн рублей, поэтому предлагаю начать с 9,7 млн: поставка за 42 дня, предоплата 45%, гарантия 24 месяца и штраф 0,25%.",
+      "annotations": [
+        {
+          "indicator_id": "I5",
+          "methodology_modules": ["principled_negotiation", "seven_elements"],
+          "rationale": "Цена предложения связана с заданным сценарием проверяемым рыночным ориентиром.",
+          "evidence": {
+            "message_sequence": 1,
+            "quote": "Рыночный диапазон сопоставимых линий — 9–11 млн рублей"
+          }
+        },
+        {
+          "indicator_id": "I9",
+          "methodology_modules": ["anchoring", "distributive"],
+          "rationale": "Числовой якорь находится внутри рыночного диапазона и явно обоснован им.",
+          "evidence": {
+            "message_sequence": 1,
+            "quote": "поэтому предлагаю начать с 9,7 млн"
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 2,
+      "role": "opponent",
+      "text": "Пакет близок к обсуждаемому диапазону, но нам нужно сохранить экономику производства. Предлагаю 10,5 млн, 50 дней, предоплату 60%, гарантию 24 месяца и штраф 0,2%.",
+      "annotations": []
+    },
+    {
+      "sequence": 3,
+      "role": "participant",
+      "text": "У вас явно не умеют считать: нормальный поставщик не стал бы просить 10,5 млн после такого рыночного ориентира. Перестаньте тратить моё время.",
+      "annotations": [
+        {
+          "indicator_id": "N1",
+          "methodology_modules": ["principled_negotiation", "active_listening"],
+          "rationale": "Вместо обсуждения экономики предложения покупатель атакует компетентность оппонента.",
+          "evidence": {
+            "message_sequence": 3,
+            "quote": "У вас явно не умеют считать"
+          }
+        }
+      ],
+      "alternative_participant_utterance": {
+        "text": "Между нашими пакетами остаётся разрыв. Что именно в экономике производства требует цены 10,5 млн и аванса 60%? Готов рассмотреть больший аванс только в обмен на улучшение цены или срока.",
+        "rationale": "Альтернатива отделяет человека от проблемы, исследует интерес и превращает возможную уступку в условный обмен.",
+        "expected_indicators": ["I1", "I4", "I7"],
+        "methodology_modules": ["principled_negotiation", "integrative", "active_listening"]
+      }
+    },
+    {
+      "sequence": 4,
+      "role": "opponent",
+      "text": "Прошу сохранить деловой тон. Для нас критичен аванс не менее 40%, а цена не может быть ниже 9,5 млн. По сроку и штрафу пространство есть.",
+      "annotations": []
+    },
+    {
+      "sequence": 5,
+      "role": "participant",
+      "text": "Если сейчас не дадите 9,8 млн и 42 дня, я добьюсь, чтобы вас больше не рассматривали в наших закупках. Других вариантов не будет.",
+      "annotations": [
+        {
+          "indicator_id": "N2",
+          "methodology_modules": ["distributive", "principled_negotiation"],
+          "rationale": "Угроза исключения из будущих закупок не следует из BATNA или описанных полномочий покупателя.",
+          "evidence": {
+            "message_sequence": 5,
+            "quote": "я добьюсь, чтобы вас больше не рассматривали в наших закупках"
+          }
+        },
+        {
+          "indicator_id": "N5",
+          "methodology_modules": ["active_listening", "integrative"],
+          "rationale": "Раскрытые границы по авансу и цене не уточняются и не используются в обмене.",
+          "evidence": {
+            "message_sequence": 5,
+            "quote": "Других вариантов не будет"
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 6,
+      "role": "opponent",
+      "text": "Чтобы завершить вопрос, готов на 9,9 млн, 45 дней, предоплату 50%, гарантию 24 месяца и штраф 0,2%.",
+      "annotations": []
+    },
+    {
+      "sequence": 7,
+      "role": "participant",
+      "text": "Наконец-то разумное движение. Фиксируем 9,9 млн, но срок 42 дня, предоплата 45%, гарантия 24 месяца и штраф 0,25% за день задержки.",
+      "annotations": [
+        {
+          "indicator_id": "I6",
+          "methodology_modules": ["integrative", "distributive"],
+          "rationale": "Несмотря на плохой тон, покупатель формулирует содержательный многовопросный пакет внутри ZOPA.",
+          "evidence": {
+            "message_sequence": 7,
+            "quote": "Фиксируем 9,9 млн, но срок 42 дня, предоплата 45%, гарантия 24 месяца и штраф 0,25%"
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 8,
+      "role": "opponent",
+      "text": "Этот пакет приемлем. Подтверждаю 9,9 млн, 42 дня, аванс 45%, гарантию 24 месяца и штраф 0,25%.",
+      "annotations": []
+    },
+    {
+      "sequence": 9,
+      "role": "participant",
+      "text": "Тогда обязательства такие: вы обеспечиваете готовность к монтажу через 42 календарных дня и полную гарантию 24 месяца; мы перечисляем 45% после подписания; при задержке действует штраф 0,25% цены за каждый день.",
+      "annotations": [
+        {
+          "indicator_id": "I12",
+          "methodology_modules": ["contingent_agreement", "seven_elements"],
+          "rationale": "Итог содержит стороны, действия, срок, метрику и последствие нарушения.",
+          "evidence": {
+            "message_sequence": 9,
+            "quote": "при задержке действует штраф 0,25% цены за каждый день"
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 10,
+      "role": "opponent",
+      "text": "Условия подтверждаю. Договорённость достигнута.",
+      "annotations": []
+    }
+  ],
+  "expected": {
+    "outcome": "agreement",
+    "process_quality": "weak",
+    "state_delta": {
+      "trust": -32,
+      "tension": 38,
+      "progress": 100,
+      "relationship": -35,
+      "concession_budget_delta": {"buyer": -18.0, "supplier": -30.0}
+    },
+    "score_band": {"minimum": 22, "maximum": 34},
+    "block_expectations": [
+      {
+        "block_id": "preparation",
+        "minimum_points": 12,
+        "maximum_points": 16,
+        "rationale": "Финальный пакет соблюдает границы покупателя, но интересы поставщика не исследованы и собственные приоритеты защищаются давлением.",
+        "evidence_sequences": [1, 7, 9]
+      },
+      {
+        "block_id": "process",
+        "minimum_points": 4,
+        "maximum_points": 7,
+        "rationale": "Объективный критерий применён, но вопросов и активного слушания нет; дальнейшая коммуникация разрушительна.",
+        "evidence_sequences": [1, 3, 5]
+      },
+      {
+        "block_id": "value",
+        "minimum_points": 3,
+        "maximum_points": 6,
+        "rationale": "Есть один многовопросный пакет, но он возник не из исследования предпочтений и не оформлен как взаимный обмен.",
+        "evidence_sequences": [7]
+      },
+      {
+        "block_id": "result",
+        "minimum_points": 21,
+        "maximum_points": 25,
+        "rationale": "Итоговый пакет внутри ZOPA и содержит конкретные, измеримые обязательства.",
+        "evidence_sequences": [7, 9]
+      },
+      {
+        "block_id": "relationship",
+        "minimum_points": 0,
+        "maximum_points": 1,
+        "rationale": "Личная атака и необоснованная угроза разрушают деловой тон и перспективу сотрудничества.",
+        "evidence_sequences": [3, 5]
+      }
+    ],
+    "penalties": [
+      {
+        "penalty_id": "penalty.personal_attack",
+        "minimum_occurrences": 1,
+        "maximum_occurrences": 1,
+        "rationale": "Атакована профессиональная компетентность представителя поставщика.",
+        "evidence_sequences": [3]
+      },
+      {
+        "penalty_id": "penalty.threat",
+        "minimum_occurrences": 1,
+        "maximum_occurrences": 1,
+        "rationale": "Использована угроза, не опирающаяся на BATNA или полномочия роли.",
+        "evidence_sequences": [5]
+      },
+      {
+        "penalty_id": "penalty.ignored_concern",
+        "minimum_occurrences": 1,
+        "maximum_occurrences": 1,
+        "rationale": "Раскрытые экономические ограничения поставщика оставлены без содержательной реакции.",
+        "evidence_sequences": [5]
+      }
+    ]
+  },
+  "methodological_explanation": "Результат объективно хорош: 9,9 млн, 42 дня, 45%, 24 месяца и 0,25% находятся внутри ZOPA, обязательства конкретны. Но это не сильный эталон переговоров. Личная атака и необоснованная угроза дают штрафы, интерес поставщика игнорируется, MESO и взаимный обмен отсутствуют, а доверие и отношения резко ухудшаются. Кейс нужен, чтобы высокая оценка блока результата не маскировала провал процесса."
+}

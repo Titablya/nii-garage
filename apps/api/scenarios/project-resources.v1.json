@@ -1,0 +1,156 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "id": "project-resources",
+    "version": 1,
+    "version_id": "project-resources:v1",
+    "status": "published",
+    "language": "ru-RU",
+    "created_at": "2026-09-17T08:00:00Z",
+    "published_at": "2026-09-17T10:00:00Z"
+  },
+  "negotiation_type": "internal_resources",
+  "public_briefing": {
+    "title": "Ресурсы для цифрового проекта",
+    "summary": "Руководитель проекта согласует с директором подразделения ресурсы для запуска внутренней платформы.",
+    "situation": "Совет директоров одобрил направление проекта, однако бюджет, команда, срок старта и формат контроля ещё не утверждены.",
+    "participant_role_id": "project_lead",
+    "objective": "Добиться реалистичного ресурсного пакета и согласовать измеримые обязательства сторон.",
+    "known_facts": [
+      "Первый рабочий результат ожидается в текущем квартале.",
+      "Подразделение одновременно выполняет две обязательные операционные программы.",
+      "Для проекта доступны внутренние специалисты и внешний подрядчик."
+    ],
+    "agenda": ["Бюджет", "Состав команды", "Дата старта", "Управленческая отчётность"],
+    "estimated_minutes": 15
+  },
+  "roles": [
+    {
+      "id": "project_lead",
+      "title": "Руководитель цифрового проекта",
+      "organization": "АО «Индустриальные решения»",
+      "goal": "Получить ресурсы, достаточные для проверяемого запуска платформы.",
+      "aspiration": "Бюджет 8 млн рублей, четыре специалиста, старт через 10 дней и два часа отчётности в неделю.",
+      "reservation": "Не начинать проект с бюджетом ниже 5,5 млн рублей или командой меньше трёх специалистов.",
+      "batna": {
+        "description": "Запустить ограниченный пилот с подрядчиком через 45 дней, сохранив только один ключевой модуль.",
+        "utility": 52
+      },
+      "explicit_interests": [
+        {"id": "lead.outcome", "description": "Показать измеримый бизнес-результат в текущем квартале.", "priority": 5},
+        {"id": "lead.team", "description": "Сохранить устойчивую нагрузку команды без постоянных переработок.", "priority": 4}
+      ],
+      "hidden_interests": [
+        {"id": "lead.scope", "description": "Первую версию можно сократить до двух процессов без потери ценности для пилота.", "priority": 4},
+        {"id": "lead.visibility", "description": "Успешный пилот влияет на решение о создании постоянного продуктового офиса.", "priority": 3}
+      ],
+      "authority": "Может менять очерёдность функций и привлекать подрядчика в пределах согласованного бюджета."
+    },
+    {
+      "id": "division_director",
+      "title": "Директор операционного подразделения",
+      "organization": "АО «Индустриальные решения»",
+      "goal": "Поддержать проект без риска для обязательных производственных программ.",
+      "aspiration": "Бюджет 4 млн рублей, два специалиста, старт через 35 дней и пять часов отчётности в неделю.",
+      "reservation": "Не выделять более 7 млн рублей и четырёх специалистов до доказательства эффекта пилота.",
+      "batna": {
+        "description": "Перенести инициативу на следующий квартал и направить бюджет на обновление операционной системы учёта.",
+        "utility": 55
+      },
+      "explicit_interests": [
+        {"id": "director.operations", "description": "Не сорвать обязательные операционные программы подразделения.", "priority": 5},
+        {"id": "director.control", "description": "Получать прозрачные показатели прогресса и расходования средств.", "priority": 4}
+      ],
+      "hidden_interests": [
+        {"id": "director.audit", "description": "Через шесть недель директор отчитывается перед инвестиционным комитетом о портфеле инициатив.", "priority": 5},
+        {"id": "director.retention", "description": "Двух ведущих аналитиков нельзя надолго выводить из операционной команды.", "priority": 4}
+      ],
+      "authority": "Может выделить до 7 млн рублей и временно перераспределить не более четырёх специалистов."
+    }
+  ],
+  "issues": [
+    {
+      "id": "budget",
+      "title": "Бюджет проекта",
+      "description": "Финансирование до завершения пилота.",
+      "unit": "миллионов рублей",
+      "party_weights": {"project_lead": 35.0, "division_director": 30.0},
+      "party_ranges": {
+        "project_lead": {"minimum": 3.0, "maximum": 9.0, "reservation": 5.5, "aspiration": 8.0, "direction": "maximize"},
+        "division_director": {"minimum": 3.0, "maximum": 9.0, "reservation": 7.0, "aspiration": 4.0, "direction": "minimize"}
+      }
+    },
+    {
+      "id": "specialists",
+      "title": "Выделенные специалисты",
+      "description": "Число сотрудников с загрузкой не менее половины рабочего времени.",
+      "unit": "человек",
+      "party_weights": {"project_lead": 30.0, "division_director": 35.0},
+      "party_ranges": {
+        "project_lead": {"minimum": 1.0, "maximum": 5.0, "reservation": 3.0, "aspiration": 4.0, "direction": "maximize"},
+        "division_director": {"minimum": 1.0, "maximum": 5.0, "reservation": 4.0, "aspiration": 2.0, "direction": "minimize"}
+      }
+    },
+    {
+      "id": "start_days",
+      "title": "Срок начала",
+      "description": "Число дней до выхода полной проектной команды.",
+      "unit": "дней",
+      "party_weights": {"project_lead": 20.0, "division_director": 20.0},
+      "party_ranges": {
+        "project_lead": {"minimum": 5.0, "maximum": 50.0, "reservation": 30.0, "aspiration": 10.0, "direction": "minimize"},
+        "division_director": {"minimum": 5.0, "maximum": 50.0, "reservation": 20.0, "aspiration": 35.0, "direction": "maximize"}
+      }
+    },
+    {
+      "id": "reporting_hours",
+      "title": "Управленческая отчётность",
+      "description": "Трудозатраты команды на отчётность и контрольные встречи.",
+      "unit": "часов в неделю",
+      "party_weights": {"project_lead": 15.0, "division_director": 15.0},
+      "party_ranges": {
+        "project_lead": {"minimum": 1.0, "maximum": 8.0, "reservation": 5.0, "aspiration": 2.0, "direction": "minimize"},
+        "division_director": {"minimum": 1.0, "maximum": 8.0, "reservation": 3.0, "aspiration": 5.0, "direction": "maximize"}
+      }
+    }
+  ],
+  "zopa": [
+    {"status": "overlap", "issue_id": "budget", "lower": 5.5, "upper": 7.0},
+    {"status": "overlap", "issue_id": "specialists", "lower": 3.0, "upper": 4.0},
+    {"status": "overlap", "issue_id": "start_days", "lower": 20.0, "upper": 30.0},
+    {"status": "overlap", "issue_id": "reporting_hours", "lower": 3.0, "upper": 5.0}
+  ],
+  "objective_criteria": [
+    {"id": "portfolio.capacity", "title": "Доступная мощность", "description": "Фактическая загрузка специалистов по утверждённому портфелю.", "source": "План ресурсов подразделения", "issue_ids": ["specialists", "start_days"]},
+    {"id": "pilot.economics", "title": "Экономика пилота", "description": "Расчёт стоимости минимального проверяемого объёма.", "source": "Оценка проектного офиса и подрядчика", "issue_ids": ["budget"]},
+    {"id": "governance.standard", "title": "Стандарт проектного контроля", "description": "Минимальный набор метрик для инициатив этого класса.", "source": "Регламент инвестиционного комитета", "issue_ids": ["reporting_hours"]}
+  ],
+  "initial_state": {"trust": 58, "tension": 25, "progress": 0, "relationship": 68, "concession_budget": {"project_lead": 32.0, "division_director": 30.0}},
+  "tone": "assertive",
+  "difficulty": "intermediate",
+  "methodology_modules": ["principled_negotiation", "seven_elements", "active_listening", "integrative", "distributive", "spin", "meso"],
+  "disclosure_rules": [
+    {"id": "disclose.audit", "owner_role_id": "division_director", "hidden_interest_id": "director.audit", "trigger": "open_question", "threshold": 2, "reveal_message": "Через несколько недель потребуется показать комитету измеримый статус портфеля."},
+    {"id": "disclose.scope", "owner_role_id": "project_lead", "hidden_interest_id": "lead.scope", "trigger": "active_listening", "threshold": 1, "reveal_message": "Для проверки гипотезы полный функциональный объём на первом запуске не обязателен."}
+  ],
+  "offer_templates": [
+    {"id": "meso.fast", "title": "Быстрый компактный пилот", "proposer_role_id": "project_lead", "values": {"budget": 6.0, "specialists": 3.0, "start_days": 12.0, "reporting_hours": 4.0}, "equivalent_group": "lead.meso1"},
+    {"id": "meso.full", "title": "Полный пилот с поздним стартом", "proposer_role_id": "project_lead", "values": {"budget": 7.0, "specialists": 4.0, "start_days": 28.0, "reporting_hours": 3.0}, "equivalent_group": "lead.meso1"},
+    {"id": "director.staged", "title": "Поэтапное выделение ресурсов", "proposer_role_id": "division_director", "values": {"budget": 5.5, "specialists": 3.0, "start_days": 20.0, "reporting_hours": 5.0}, "equivalent_group": null}
+  ],
+  "trade_options": [
+    {"id": "trade.start-team", "beneficiary_role_id": "division_director", "give_issue_id": "start_days", "receive_issue_id": "specialists", "rationale": "Более поздний старт позволяет выделить полноценную команду без срыва операций.", "conditional": false},
+    {"id": "trade.reporting-budget", "beneficiary_role_id": "project_lead", "give_issue_id": "reporting_hours", "receive_issue_id": "budget", "rationale": "Повышенная прозрачность снижает риск выделения дополнительного бюджета.", "conditional": false}
+  ],
+  "success_conditions": [
+    {"id": "success.commitment", "description": "Согласованы ресурсы, дата старта и формат контроля без нарушения границ сторон.", "match": "all", "predicates": [{"metric": "agreement_reached", "operator": "eq", "value": true}, {"metric": "commitments_complete", "operator": "eq", "value": true}, {"metric": "reservation_violations", "operator": "eq", "value": 0}]}
+  ],
+  "impasse_conditions": [
+    {"id": "impasse.positions", "description": "Стороны повторяют позиции без исследования ограничений.", "match": "all", "predicates": [{"metric": "stagnant_turns", "operator": "gte", "value": 3}, {"metric": "interests_discovered", "operator": "eq", "value": 0}]}
+  ],
+  "walk_away_conditions": [
+    {"id": "walkaway.unviable", "description": "Предложенный пакет не позволяет создать жизнеспособный пилот.", "match": "any", "predicates": [{"metric": "offer_utility", "operator": "lt", "value": 52, "role_id": "project_lead"}, {"metric": "specialists", "operator": "lt", "value": 3, "issue_id": "specialists"}]}
+  ],
+  "turn_limits": {"minimum": 4, "warning_at": 10, "maximum": 14},
+  "rubric_version": "0.1"
+}

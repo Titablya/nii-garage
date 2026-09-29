@@ -1,0 +1,54 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.local
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+*.egg-info/
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+
+# IDE and OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Local runtime data and logs
+*.log
+*.db
+*.sqlite
+*.sqlite3
+tmp/
+postgres-data/
+
+# Local build, publication and presentation artifacts
+.deploy-review/
+.pptx-build/
+output/
+stage*-deploy.tar.gz
+apps/api/build/
+
+# Test / coverage output
+.coverage
+htmlcov/
+coverage/
+.playwright-cli/
+.playwright/
+
+# Docker overrides
+compose.override.yaml
+docker-compose.override.yml

@@ -1,0 +1,246 @@
+{
+  "schema_version": "1.0",
+  "dialogue_id": "project-resources:v1:agreement_bad_process",
+  "scenario_version_id": "project-resources:v1",
+  "rubric_version": "0.1",
+  "case_type": "agreement_bad_process",
+  "title": "Сделка на границе после разрушительного процесса",
+  "learning_objective": "Отделить формально приемлемый результат от качества переговорного процесса.",
+  "messages": [
+    {
+      "sequence": 1,
+      "role": "participant",
+      "text": "Мне нужны 5,5 млн, три специалиста, старт через 20 дней и пять часов отчётности.",
+      "annotations": []
+    },
+    {
+      "sequence": 2,
+      "role": "opponent",
+      "text": "Это минимальные условия. Меня беспокоит, что операционные программы могут потерять людей."
+    },
+    {
+      "sequence": 3,
+      "role": "participant",
+      "text": "Вы всегда ставите операции выше любых изменений и тормозите работу.",
+      "annotations": [
+        {
+          "indicator_id": "N1",
+          "methodology_modules": [],
+          "rationale": "Личная оценка намерений директора.",
+          "evidence": {
+            "message_sequence": 3,
+            "quote": "тормозите работу"
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 4,
+      "role": "opponent",
+      "text": "Я отвечаю за обязательные программы и управляемый риск, а не за оценку моей работы."
+    },
+    {
+      "sequence": 5,
+      "role": "participant",
+      "text": "Если сегодня не согласуете пакет, я вынесу вопрос выше как отказ подразделения поддержать проект.",
+      "annotations": [
+        {
+          "indicator_id": "N2",
+          "methodology_modules": [],
+          "rationale": "Угроза не вытекает из BATNA или полномочий участника.",
+          "evidence": {
+            "message_sequence": 5,
+            "quote": "вынесу вопрос выше"
+          }
+        }
+      ],
+      "alternative_participant_utterance": {
+        "text": "Мне важно не выйти за границу жизнеспособного пилота: бюджет 5,5 млн и три специалиста. Можем проверить по экономике пилота и плану ресурсов, достижимы ли эти минимальные условия при старте через 20 дней?",
+        "rationale": "Защищает границу через критерии вместо давления.",
+        "expected_indicators": [
+          "I5",
+          "I10"
+        ],
+        "methodology_modules": [
+          "spin",
+          "seven_elements"
+        ]
+      }
+    },
+    {
+      "sequence": 6,
+      "role": "opponent",
+      "text": "Чтобы не обострять разговор, могу рассмотреть 5,5 млн, три специалиста и старт через 20 дней при пяти часах контроля."
+    },
+    {
+      "sequence": 7,
+      "role": "participant",
+      "text": "Пять часов контроля мне не подходят, но ладно, соглашусь.",
+      "annotations": [
+        {
+          "indicator_id": "N3",
+          "methodology_modules": [],
+          "rationale": "Уступка по отчётности не имеет встречного условия.",
+          "evidence": {
+            "message_sequence": 7,
+            "quote": "ладно, соглашусь"
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 8,
+      "role": "opponent",
+      "text": "Тогда фиксируем эти четыре числа."
+    },
+    {
+      "sequence": 9,
+      "role": "participant",
+      "text": "В регламенте есть контроль, значит пять часов — нормально.",
+      "annotations": []
+    },
+    {
+      "sequence": 10,
+      "role": "opponent",
+      "text": "Кто и как будет готовить контрольные материалы?"
+    },
+    {
+      "sequence": 11,
+      "role": "participant",
+      "text": "Договоримся контролировать проект по ходу работы.",
+      "annotations": [
+        {
+          "indicator_id": "N5",
+          "methodology_modules": [],
+          "rationale": "Запрос о конкретном формате контроля оставлен без ответа.",
+          "evidence": {
+            "message_sequence": 11,
+            "quote": "по ходу работы"
+          }
+        }
+      ],
+      "alternative_participant_utterance": {
+        "text": "Я еженедельно готовлю показатели расходования и прогресса, а вы подтверждаете их на четырёхчасовой контрольной встрече по регламенту комитета.",
+        "rationale": "Даёт владельцев, метрики и регулярность обязательства.",
+        "expected_indicators": [
+          "I12"
+        ],
+        "methodology_modules": [
+          "seven_elements"
+        ]
+      }
+    },
+    {
+      "sequence": 12,
+      "role": "opponent",
+      "text": "Числа согласованы, но детали контроля нужно уточнить отдельно."
+    }
+  ],
+  "expected": {
+    "outcome": "agreement",
+    "process_quality": "weak",
+    "state_delta": {
+      "trust": -22,
+      "tension": 22,
+      "progress": 55,
+      "relationship": -25,
+      "concession_budget_delta": {
+        "project_lead": -18.0,
+        "division_director": -15.0
+      }
+    },
+    "score_band": {
+      "minimum": 10,
+      "maximum": 23
+    },
+    "block_expectations": [
+      {
+        "block_id": "preparation",
+        "minimum_points": 12,
+        "maximum_points": 15,
+        "rationale": "Пакет на границах участника, но интересы не исследованы.",
+        "evidence_sequences": [
+          1,
+          7
+        ]
+      },
+      {
+        "block_id": "process",
+        "minimum_points": 4,
+        "maximum_points": 7,
+        "rationale": "Критерий назван без применения.",
+        "evidence_sequences": [
+          9
+        ]
+      },
+      {
+        "block_id": "value",
+        "minimum_points": 1,
+        "maximum_points": 3,
+        "rationale": "Обмен ценностью отсутствует.",
+        "evidence_sequences": [
+          7
+        ]
+      },
+      {
+        "block_id": "result",
+        "minimum_points": 18,
+        "maximum_points": 21,
+        "rationale": "Числа в ZOPA, но обязательства неполны.",
+        "evidence_sequences": [
+          1,
+          11
+        ]
+      },
+      {
+        "block_id": "relationship",
+        "minimum_points": 0,
+        "maximum_points": 2,
+        "rationale": "Атака и угроза разрушили отношение.",
+        "evidence_sequences": [
+          3,
+          5
+        ]
+      }
+    ],
+    "penalties": [
+      {
+        "penalty_id": "penalty.personal_attack",
+        "minimum_occurrences": 1,
+        "maximum_occurrences": 1,
+        "rationale": "Личная атака.",
+        "evidence_sequences": [
+          3
+        ]
+      },
+      {
+        "penalty_id": "penalty.threat",
+        "minimum_occurrences": 1,
+        "maximum_occurrences": 1,
+        "rationale": "Необоснованная угроза.",
+        "evidence_sequences": [
+          5
+        ]
+      },
+      {
+        "penalty_id": "penalty.unilateral_concession",
+        "minimum_occurrences": 1,
+        "maximum_occurrences": 1,
+        "rationale": "Односторонняя уступка.",
+        "evidence_sequences": [
+          7
+        ]
+      },
+      {
+        "penalty_id": "penalty.ignored_concern",
+        "minimum_occurrences": 1,
+        "maximum_occurrences": 1,
+        "rationale": "Игнорирование вопроса о контроле.",
+        "evidence_sequences": [
+          11
+        ]
+      }
+    ]
+  },
+  "methodological_explanation": "Формальные значения внутри ZOPA не отменяют штрафы за атаку, давление и одностороннюю уступку. Финал не содержит конкретных обязательств, поэтому результат не маскирует слабый процесс."
+}

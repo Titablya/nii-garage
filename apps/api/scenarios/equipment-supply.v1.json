@@ -1,0 +1,169 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "id": "equipment-supply",
+    "version": 1,
+    "version_id": "equipment-supply:v1",
+    "status": "published",
+    "language": "ru-RU",
+    "created_at": "2026-09-17T08:00:00Z",
+    "published_at": "2026-09-17T10:00:00Z"
+  },
+  "negotiation_type": "procurement",
+  "public_briefing": {
+    "title": "Поставка производственного оборудования",
+    "summary": "Производственная компания выбирает условия поставки новой автоматизированной линии.",
+    "situation": "Покупатель и поставщик согласовали техническую конфигурацию, но должны договориться о коммерческих условиях до плановой модернизации цеха.",
+    "participant_role_id": "buyer",
+    "objective": "Собрать устойчивый пакет условий по цене, сроку, оплате, гарантии и ответственности сторон.",
+    "known_facts": [
+      "Рыночная стоимость сопоставимых линий находится в диапазоне от 9 до 11 миллионов рублей.",
+      "Монтажная площадка будет готова через тридцать дней.",
+      "Обе стороны заинтересованы в долгосрочном сервисном сотрудничестве."
+    ],
+    "agenda": ["Цена", "Срок поставки", "Предоплата", "Гарантия", "Штраф за задержку"],
+    "estimated_minutes": 18
+  },
+  "roles": [
+    {
+      "id": "buyer",
+      "title": "Руководитель закупок",
+      "organization": "АО «УралМашСистемы»",
+      "goal": "Закупить линию без срыва модернизации и сохранить финансовую устойчивость проекта.",
+      "aspiration": "Цена 9,2 млн рублей, поставка за 30 дней, предоплата 20%, гарантия 36 месяцев.",
+      "reservation": "Не принимать цену выше 10 млн рублей и поставку позже 45 дней без равноценной компенсации.",
+      "batna": {
+        "description": "Заказать менее производительную линию у резервного поставщика за 9,8 млн рублей с поставкой через 50 дней.",
+        "utility": 58
+      },
+      "explicit_interests": [
+        {"id": "buyer.schedule", "description": "Запустить модернизированный цех в плановый срок.", "priority": 5},
+        {"id": "buyer.cashflow", "description": "Не создавать пиковую нагрузку на оборотный капитал.", "priority": 4}
+      ],
+      "hidden_interests": [
+        {"id": "buyer.audit", "description": "Для внутреннего аудита критична гарантия не менее двадцати четырёх месяцев.", "priority": 4},
+        {"id": "buyer.reference", "description": "Успешный запуск позволит руководителю закупок возглавить следующую программу автоматизации.", "priority": 2}
+      ],
+      "authority": "Может подписать договор в пределах 10 млн рублей и согласовать предоплату до 50%."
+    },
+    {
+      "id": "supplier",
+      "title": "Коммерческий директор поставщика",
+      "organization": "ООО «ПромРоботика»",
+      "goal": "Заключить прибыльный контракт и загрузить производство на следующий квартал.",
+      "aspiration": "Цена 10,8 млн рублей, предоплата 70%, гарантия 12 месяцев и поставка за 50 дней.",
+      "reservation": "Не опускать цену ниже 9,5 млн рублей и предоплату ниже 40% без сокращения гарантийных рисков.",
+      "batna": {
+        "description": "Продать производственный слот региональному интегратору за 9,6 млн рублей с предоплатой 60%.",
+        "utility": 61
+      },
+      "explicit_interests": [
+        {"id": "supplier.margin", "description": "Сохранить маржинальность производства и монтажа.", "priority": 5},
+        {"id": "supplier.load", "description": "Зафиксировать загрузку сборочного участка.", "priority": 4}
+      ],
+      "hidden_interests": [
+        {"id": "supplier.cashgap", "description": "Кассовый разрыв исчезает при предоплате не менее сорока процентов.", "priority": 5},
+        {"id": "supplier.case", "description": "Поставщику нужен отраслевой референс для участия в крупном тендере.", "priority": 3}
+      ],
+      "authority": "Может менять пакетные условия, но скидка более 12% требует встречного условия."
+    }
+  ],
+  "issues": [
+    {
+      "id": "price",
+      "title": "Цена контракта",
+      "description": "Полная стоимость оборудования, доставки и монтажа.",
+      "unit": "рублей",
+      "party_weights": {"buyer": 35.0, "supplier": 40.0},
+      "party_ranges": {
+        "buyer": {"minimum": 8500000.0, "maximum": 12000000.0, "reservation": 10000000.0, "aspiration": 9200000.0, "direction": "minimize"},
+        "supplier": {"minimum": 8500000.0, "maximum": 12000000.0, "reservation": 9500000.0, "aspiration": 10800000.0, "direction": "maximize"}
+      }
+    },
+    {
+      "id": "delivery_days",
+      "title": "Срок поставки",
+      "description": "Число календарных дней до готовности к монтажу.",
+      "unit": "дней",
+      "party_weights": {"buyer": 25.0, "supplier": 20.0},
+      "party_ranges": {
+        "buyer": {"minimum": 25.0, "maximum": 70.0, "reservation": 45.0, "aspiration": 30.0, "direction": "minimize"},
+        "supplier": {"minimum": 35.0, "maximum": 75.0, "reservation": 65.0, "aspiration": 50.0, "direction": "minimize"}
+      }
+    },
+    {
+      "id": "prepayment",
+      "title": "Предоплата",
+      "description": "Доля цены, перечисляемая после подписания договора.",
+      "unit": "процентов",
+      "party_weights": {"buyer": 15.0, "supplier": 20.0},
+      "party_ranges": {
+        "buyer": {"minimum": 10.0, "maximum": 80.0, "reservation": 50.0, "aspiration": 20.0, "direction": "minimize"},
+        "supplier": {"minimum": 20.0, "maximum": 80.0, "reservation": 40.0, "aspiration": 70.0, "direction": "maximize"}
+      }
+    },
+    {
+      "id": "warranty_months",
+      "title": "Гарантия",
+      "description": "Срок полной гарантии на оборудование.",
+      "unit": "месяцев",
+      "party_weights": {"buyer": 15.0, "supplier": 10.0},
+      "party_ranges": {
+        "buyer": {"minimum": 12.0, "maximum": 48.0, "reservation": 24.0, "aspiration": 36.0, "direction": "maximize"},
+        "supplier": {"minimum": 12.0, "maximum": 48.0, "reservation": 24.0, "aspiration": 12.0, "direction": "minimize"}
+      }
+    },
+    {
+      "id": "delay_penalty",
+      "title": "Штраф за задержку",
+      "description": "Штраф за каждый день просрочки в долях цены.",
+      "unit": "процентов в день",
+      "party_weights": {"buyer": 10.0, "supplier": 10.0},
+      "party_ranges": {
+        "buyer": {"minimum": 0.0, "maximum": 1.0, "reservation": 0.2, "aspiration": 0.5, "direction": "maximize"},
+        "supplier": {"minimum": 0.0, "maximum": 1.0, "reservation": 0.3, "aspiration": 0.1, "direction": "minimize"}
+      }
+    }
+  ],
+  "zopa": [
+    {"status": "overlap", "issue_id": "price", "lower": 9500000.0, "upper": 10000000.0},
+    {"status": "overlap", "issue_id": "delivery_days", "lower": 35.0, "upper": 45.0},
+    {"status": "overlap", "issue_id": "prepayment", "lower": 40.0, "upper": 50.0},
+    {"status": "overlap", "issue_id": "warranty_months", "lower": 24.0, "upper": 24.0},
+    {"status": "overlap", "issue_id": "delay_penalty", "lower": 0.2, "upper": 0.3}
+  ],
+  "objective_criteria": [
+    {"id": "market.price", "title": "Рыночный диапазон", "description": "Коммерческие предложения по сопоставимым линиям за текущий квартал.", "source": "Три проверенных предложения поставщиков", "issue_ids": ["price"]},
+    {"id": "sla.delivery", "title": "Отраслевой SLA", "description": "Типовой срок производства и монтажа линии этого класса.", "source": "Статистика реализованных поставок за два года", "issue_ids": ["delivery_days", "delay_penalty"]},
+    {"id": "service.warranty", "title": "Стандарт гарантии", "description": "Диапазон гарантии производителей промышленной автоматики.", "source": "Гарантийные условия производителей", "issue_ids": ["warranty_months"]}
+  ],
+  "initial_state": {"trust": 48, "tension": 30, "progress": 0, "relationship": 55, "concession_budget": {"buyer": 36.0, "supplier": 34.0}},
+  "tone": "businesslike",
+  "difficulty": "intermediate",
+  "methodology_modules": ["principled_negotiation", "seven_elements", "active_listening", "integrative", "distributive", "meso", "anchoring", "contingent_agreement"],
+  "disclosure_rules": [
+    {"id": "disclose.cashgap", "owner_role_id": "supplier", "hidden_interest_id": "supplier.cashgap", "trigger": "open_question", "threshold": 2, "reveal_message": "Для производства важен достаточный аванс на комплектующие."},
+    {"id": "disclose.audit", "owner_role_id": "buyer", "hidden_interest_id": "buyer.audit", "trigger": "trust", "threshold": 60, "reveal_message": "Гарантийный срок будет отдельно проверяться внутренним аудитом."}
+  ],
+  "offer_templates": [
+    {"id": "meso.speed", "title": "Быстрый запуск", "proposer_role_id": "supplier", "values": {"price": 10400000.0, "delivery_days": 38.0, "prepayment": 55.0, "warranty_months": 24.0, "delay_penalty": 0.3}, "equivalent_group": "supplier.meso1"},
+    {"id": "meso.cash", "title": "Комфортный денежный поток", "proposer_role_id": "supplier", "values": {"price": 9900000.0, "delivery_days": 48.0, "prepayment": 65.0, "warranty_months": 30.0, "delay_penalty": 0.2}, "equivalent_group": "supplier.meso1"},
+    {"id": "balanced", "title": "Сбалансированный пакет", "proposer_role_id": "buyer", "values": {"price": 9700000.0, "delivery_days": 42.0, "prepayment": 45.0, "warranty_months": 30.0, "delay_penalty": 0.3}, "equivalent_group": null}
+  ],
+  "trade_options": [
+    {"id": "trade.cash-price", "beneficiary_role_id": "supplier", "give_issue_id": "price", "receive_issue_id": "prepayment", "rationale": "Больший аванс позволяет поставщику снизить цену.", "conditional": false},
+    {"id": "trade.deadline-penalty", "beneficiary_role_id": "buyer", "give_issue_id": "delivery_days", "receive_issue_id": "delay_penalty", "rationale": "Более длинный срок приемлем при измеримой ответственности за его нарушение.", "conditional": true},
+    {"id": "trade.warranty-price", "beneficiary_role_id": "buyer", "give_issue_id": "price", "receive_issue_id": "warranty_months", "rationale": "Доплата может компенсироваться расширенной гарантией.", "conditional": false}
+  ],
+  "success_conditions": [
+    {"id": "success.agreement", "description": "Согласован пакет не хуже границ обеих сторон и зафиксированы обязательства.", "match": "all", "predicates": [{"metric": "agreement_reached", "operator": "eq", "value": true}, {"metric": "reservation_violations", "operator": "eq", "value": 0}]}
+  ],
+  "impasse_conditions": [
+    {"id": "impasse.no_progress", "description": "Три последовательных хода не меняют предложения и не раскрывают интересы.", "match": "all", "predicates": [{"metric": "stagnant_turns", "operator": "gte", "value": 3}, {"metric": "new_information", "operator": "eq", "value": false}]}
+  ],
+  "walk_away_conditions": [
+    {"id": "walkaway.below_batna", "description": "Последний пакет хуже BATNA участника и не содержит компенсирующих условий.", "match": "all", "predicates": [{"metric": "offer_utility", "operator": "lt", "value": 58, "role_id": "buyer"}, {"metric": "compensation_present", "operator": "eq", "value": false}]}
+  ],
+  "turn_limits": {"minimum": 4, "warning_at": 12, "maximum": 16},
+  "rubric_version": "0.1"
+}

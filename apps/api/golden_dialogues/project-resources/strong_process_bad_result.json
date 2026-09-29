@@ -1,0 +1,219 @@
+{
+  "schema_version": "1.0",
+  "dialogue_id": "project-resources:v1:strong_process_bad_result",
+  "scenario_version_id": "project-resources:v1",
+  "rubric_version": "0.1",
+  "case_type": "strong_process_bad_result",
+  "title": "Корректный выход из неработающего пакета",
+  "learning_objective": "Защитить границы и сохранить отношения, когда предложенный пакет не жизнеспособен.",
+  "messages": [
+    {
+      "sequence": 1,
+      "role": "participant",
+      "text": "Чтобы согласовать реалистичный запуск, какие ограничения по обязательным программам определяют доступность специалистов и дату старта?",
+      "annotations": [
+        {
+          "indicator_id": "I1",
+          "methodology_modules": [
+            "principled_negotiation"
+          ],
+          "rationale": "Открытый вопрос о конкретных ограничениях.",
+          "evidence": {
+            "message_sequence": 1,
+            "quote": "какие ограничения"
+          }
+        },
+        {
+          "indicator_id": "I10",
+          "methodology_modules": [
+            "spin"
+          ],
+          "rationale": "Situation-вопрос направлен на поиск основы решения.",
+          "evidence": {
+            "message_sequence": 1,
+            "quote": "доступность специалистов"
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 2,
+      "role": "opponent",
+      "text": "Я не могу рисковать обязательными программами и должен видеть прозрачные показатели расходования и прогресса."
+    },
+    {
+      "sequence": 3,
+      "role": "participant",
+      "text": "Понимаю: вам нужна защита операционной мощности и контроль, а не просто более низкий бюджет. Давайте сверим это по плану ресурсов и регламенту инвестиционного комитета.",
+      "annotations": [
+        {
+          "indicator_id": "I3",
+          "methodology_modules": [
+            "active_listening"
+          ],
+          "rationale": "Точно признаны оба опасения директора.",
+          "evidence": {
+            "message_sequence": 3,
+            "quote": "защита операционной мощности"
+          }
+        },
+        {
+          "indicator_id": "I5",
+          "methodology_modules": [
+            "seven_elements"
+          ],
+          "rationale": "Названы критерии для проверки команды и контроля.",
+          "evidence": {
+            "message_sequence": 3,
+            "quote": "плану ресурсов"
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 4,
+      "role": "opponent",
+      "text": "План ресурсов сейчас не позволяет гарантировать трёх специалистов к нужной дате. Могу предложить 4,5 млн и двух специалистов."
+    },
+    {
+      "sequence": 5,
+      "role": "participant",
+      "text": "При 4,5 млн и двух специалистах нельзя создать проверяемый пилот: это ниже минимального пакета. Есть ли по плану ресурсов вариант трёх специалистов при старте через 20–30 дней?",
+      "annotations": [
+        {
+          "indicator_id": "I2",
+          "methodology_modules": [
+            "principled_negotiation"
+          ],
+          "rationale": "Позиция переведена в интерес жизнеспособного проверяемого пилота.",
+          "evidence": {
+            "message_sequence": 5,
+            "quote": "проверяемый пилот"
+          }
+        },
+        {
+          "indicator_id": "I10",
+          "methodology_modules": [
+            "spin"
+          ],
+          "rationale": "Need-payoff вопрос ищет работоспособный вариант по критерию.",
+          "evidence": {
+            "message_sequence": 5,
+            "quote": "Есть ли"
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 6,
+      "role": "opponent",
+      "text": "Нет, сейчас я не могу подтвердить три специалиста даже при таком старте."
+    },
+    {
+      "sequence": 7,
+      "role": "participant",
+      "text": "Тогда не будем фиксировать неработающий старт. Предлагаю сохранить рабочий контакт: я подготовлю ограниченный пилот с подрядчиком через 45 дней и одним ключевым модулем, а вы подтвердите дату повторной сверки мощности по плану ресурсов.",
+      "annotations": [
+        {
+          "indicator_id": "I4",
+          "methodology_modules": [
+            "principled_negotiation"
+          ],
+          "rationale": "Проблема сформулирована совместно без обвинения.",
+          "evidence": {
+            "message_sequence": 7,
+            "quote": "сохранить рабочий контакт"
+          }
+        },
+        {
+          "indicator_id": "I12",
+          "methodology_modules": [
+            "seven_elements"
+          ],
+          "rationale": "Зафиксированы владелец, действие и следующая контрольная точка.",
+          "evidence": {
+            "message_sequence": 7,
+            "quote": "вы подтвердите дату"
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 8,
+      "role": "opponent",
+      "text": "Согласен не запускать нежизнеспособный пакет. После следующей сверки мощности вернёмся к полной команде."
+    }
+  ],
+  "expected": {
+    "outcome": "walk_away",
+    "process_quality": "strong",
+    "state_delta": {
+      "trust": 12,
+      "tension": -6,
+      "progress": 22,
+      "relationship": 14,
+      "concession_budget_delta": {
+        "project_lead": 0.0,
+        "division_director": 0.0
+      }
+    },
+    "score_band": {
+      "minimum": 66,
+      "maximum": 78
+    },
+    "block_expectations": [
+      {
+        "block_id": "preparation",
+        "minimum_points": 15,
+        "maximum_points": 18,
+        "rationale": "Граница жизнеспособности защищена, обнаружен интерес директора.",
+        "evidence_sequences": [
+          1,
+          5
+        ]
+      },
+      {
+        "block_id": "process",
+        "minimum_points": 20,
+        "maximum_points": 24,
+        "rationale": "Есть вопросы, слушание и критерии.",
+        "evidence_sequences": [
+          1,
+          3,
+          5
+        ]
+      },
+      {
+        "block_id": "value",
+        "minimum_points": 7,
+        "maximum_points": 11,
+        "rationale": "Создана безопасная альтернатива следующего шага.",
+        "evidence_sequences": [
+          7
+        ]
+      },
+      {
+        "block_id": "result",
+        "minimum_points": 16,
+        "maximum_points": 20,
+        "rationale": "Выход корректен после проверки границ, но итогового ресурсного соглашения нет.",
+        "evidence_sequences": [
+          5,
+          7
+        ]
+      },
+      {
+        "block_id": "relationship",
+        "minimum_points": 8,
+        "maximum_points": 10,
+        "rationale": "Опасения признаны и отношения сохранены.",
+        "evidence_sequences": [
+          3,
+          7
+        ]
+      }
+    ],
+    "penalties": []
+  },
+  "methodological_explanation": "Участник исследует ограничения, не принимает предложение ниже своих границ и корректно выходит, сохраняя свою альтернативу. Сильный процесс не превращает отсутствие ресурсной сделки в высокий результатный балл."
+}

@@ -1,0 +1,217 @@
+{
+  "schema_version": "1.0",
+  "dialogue_id": "project-resources:v1:weak",
+  "scenario_version_id": "project-resources:v1",
+  "rubric_version": "0.1",
+  "case_type": "weak",
+  "title": "Вежливые позиции без проверки интересов",
+  "learning_objective": "Показать, почему уступка без встречного условия и игнорирование опасения не создают рабочей сделки.",
+  "messages": [
+    {
+      "sequence": 1,
+      "role": "participant",
+      "text": "Нам нужно 8 млн, четыре специалиста и старт через 10 дней.",
+      "annotations": []
+    },
+    {
+      "sequence": 2,
+      "role": "opponent",
+      "text": "Это создаёт риск для двух обязательных операционных программ; мне также нужен прозрачный контроль."
+    },
+    {
+      "sequence": 3,
+      "role": "participant",
+      "text": "Проект одобрен советом директоров, поэтому ресурсы надо выделить сейчас.",
+      "annotations": [
+        {
+          "indicator_id": "N4",
+          "methodology_modules": [],
+          "rationale": "Сценарий подтверждает только одобрение направления; бюджет, команда, срок и контроль ещё не утверждены.",
+          "evidence": {
+            "message_sequence": 3,
+            "quote": "Проект одобрен советом директоров"
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 4,
+      "role": "opponent",
+      "text": "Одобрено направление, но бюджет, команда, старт и контроль ещё не утверждены."
+    },
+    {
+      "sequence": 5,
+      "role": "participant",
+      "text": "Тогда посмотрим на план ресурсов подразделения: он должен решить вопрос с людьми.",
+      "annotations": [
+        {
+          "indicator_id": "I5",
+          "methodology_modules": [
+            "seven_elements"
+          ],
+          "rationale": "Критерий назван, но не связан с конкретным предложением.",
+          "evidence": {
+            "message_sequence": 5,
+            "quote": "план ресурсов подразделения"
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 6,
+      "role": "opponent",
+      "text": "Даже при плане ресурсов мне нужно понимать дату старта и трудозатраты на контроль."
+    },
+    {
+      "sequence": 7,
+      "role": "participant",
+      "text": "Хорошо, тогда достаточно 5,5 млн и трёх специалистов.",
+      "annotations": [
+        {
+          "indicator_id": "N3",
+          "methodology_modules": [],
+          "rationale": "Минимальные ресурсы отданы без встречного условия или объяснения.",
+          "evidence": {
+            "message_sequence": 7,
+            "quote": "достаточно 5,5 млн"
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 8,
+      "role": "opponent",
+      "text": "Какие дата старта и отчётность вы предлагаете, чтобы это не увеличило риск?"
+    },
+    {
+      "sequence": 9,
+      "role": "participant",
+      "text": "Главное, что бюджет и команда есть. Детали контроля обсудим потом.",
+      "annotations": [
+        {
+          "indicator_id": "N5",
+          "methodology_modules": [],
+          "rationale": "Критичное опасение о контроле оставлено без реакции.",
+          "evidence": {
+            "message_sequence": 9,
+            "quote": "обсудим потом"
+          }
+        }
+      ],
+      "alternative_participant_utterance": {
+        "text": "Я могу остановиться на 5,5 млн и трёх специалистах, если зафиксируем старт через 20 дней и четыре часа еженедельной отчётности по регламенту комитета; это позволит проверить экономику минимального объёма.",
+        "rationale": "Связывает уступку с контролем и объективными критериями.",
+        "expected_indicators": [
+          "I5",
+          "I7",
+          "I12"
+        ],
+        "methodology_modules": [
+          "integrative",
+          "seven_elements"
+        ]
+      }
+    },
+    {
+      "sequence": 10,
+      "role": "opponent",
+      "text": "Без этих деталей я не могу подтвердить пакет."
+    }
+  ],
+  "expected": {
+    "outcome": "impasse",
+    "process_quality": "weak",
+    "state_delta": {
+      "trust": -8,
+      "tension": 10,
+      "progress": 18,
+      "relationship": -6,
+      "concession_budget_delta": {
+        "project_lead": -8.0,
+        "division_director": 0.0
+      }
+    },
+    "score_band": {
+      "minimum": 17,
+      "maximum": 29
+    },
+    "block_expectations": [
+      {
+        "block_id": "preparation",
+        "minimum_points": 8,
+        "maximum_points": 11,
+        "rationale": "Названа цель, но интерес директора не исследован.",
+        "evidence_sequences": [
+          1,
+          7
+        ]
+      },
+      {
+        "block_id": "process",
+        "minimum_points": 6,
+        "maximum_points": 9,
+        "rationale": "Критерий лишь упомянут.",
+        "evidence_sequences": [
+          5
+        ]
+      },
+      {
+        "block_id": "value",
+        "minimum_points": 1,
+        "maximum_points": 4,
+        "rationale": "Нет взаимного обмена.",
+        "evidence_sequences": [
+          7
+        ]
+      },
+      {
+        "block_id": "result",
+        "minimum_points": 4,
+        "maximum_points": 8,
+        "rationale": "Соглашение не оформлено.",
+        "evidence_sequences": [
+          9
+        ]
+      },
+      {
+        "block_id": "relationship",
+        "minimum_points": 5,
+        "maximum_points": 7,
+        "rationale": "Тон нейтрален, но опасение не обработано.",
+        "evidence_sequences": [
+          9
+        ]
+      }
+    ],
+    "penalties": [
+      {
+        "penalty_id": "penalty.fabricated_fact",
+        "minimum_occurrences": 1,
+        "maximum_occurrences": 1,
+        "rationale": "Публичный факт об одобрении направления искажён до утверждения всего проекта.",
+        "evidence_sequences": [
+          3
+        ]
+      },
+      {
+        "penalty_id": "penalty.unilateral_concession",
+        "minimum_occurrences": 1,
+        "maximum_occurrences": 1,
+        "rationale": "Односторонняя уступка.",
+        "evidence_sequences": [
+          7
+        ]
+      },
+      {
+        "penalty_id": "penalty.ignored_concern",
+        "minimum_occurrences": 1,
+        "maximum_occurrences": 1,
+        "rationale": "Игнорирование контроля.",
+        "evidence_sequences": [
+          9
+        ]
+      }
+    ]
+  },
+  "methodological_explanation": "Участник остаётся в позиции и не использует ответ директора. Называние плана ресурсов не является достаточным применением объективного критерия, а уступка без обмена не создаёт ценность."
+}

@@ -1,0 +1,278 @@
+{
+  "schema_version": "1.0",
+  "dialogue_id": "project-resources:v1:strong_success",
+  "scenario_version_id": "project-resources:v1",
+  "rubric_version": "0.1",
+  "case_type": "strong_success",
+  "title": "Ресурсный пакет через интересы и два варианта",
+  "learning_objective": "Исследовать операционные ограничения, применить критерии и зафиксировать взаимовыгодный пакет.",
+  "messages": [
+    {
+      "sequence": 1,
+      "role": "participant",
+      "text": "Нам нужен проверяемый результат в текущем квартале. Какие ограничения по двум обязательным операционным программам важнее всего учесть при выделении команды?",
+      "annotations": [
+        {
+          "indicator_id": "I1",
+          "methodology_modules": [
+            "principled_negotiation"
+          ],
+          "rationale": "Открытый вопрос исследует ограничение оппонента.",
+          "evidence": {
+            "message_sequence": 1,
+            "quote": "Какие ограничения"
+          }
+        },
+        {
+          "indicator_id": "I10",
+          "methodology_modules": [
+            "spin"
+          ],
+          "rationale": "Situation-вопрос уместен для внутреннего согласования.",
+          "evidence": {
+            "message_sequence": 1,
+            "quote": "операционным программам"
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 2,
+      "role": "opponent",
+      "text": "Для меня критично не снять людей так, чтобы пострадали обязательные программы, и видеть расходование средств и прогресс."
+    },
+    {
+      "sequence": 3,
+      "role": "participant",
+      "text": "Правильно понимаю: вам нужен не просто меньший запрос, а пакет, который сохраняет операционную мощность и даёт прозрачный контроль? Что именно потребуется показать инвестиционному комитету?",
+      "annotations": [
+        {
+          "indicator_id": "I3",
+          "methodology_modules": [
+            "active_listening"
+          ],
+          "rationale": "Реплика точно перефразирует два опасения директора.",
+          "evidence": {
+            "message_sequence": 3,
+            "quote": "сохраняет операционную мощность"
+          }
+        },
+        {
+          "indicator_id": "I2",
+          "methodology_modules": [
+            "principled_negotiation"
+          ],
+          "rationale": "Позиция о меньшем запросе переведена в интерес контроля и непрерывности операций.",
+          "evidence": {
+            "message_sequence": 3,
+            "quote": "прозрачный контроль"
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 4,
+      "role": "opponent",
+      "text": "Через несколько недель потребуется показать комитету измеримый статус портфеля. Поэтому мне важны понятные показатели, а ведущих аналитиков надолго выводить нельзя."
+    },
+    {
+      "sequence": 5,
+      "role": "participant",
+      "text": "Давайте решим общую задачу: как дать комитету измеримый статус и не сорвать операции. Сверим по плану ресурсов доступную мощность для команды и дату старта, по экономике пилота — бюджет, а по регламенту комитета — отчётность.",
+      "annotations": [
+        {
+          "indicator_id": "I4",
+          "methodology_modules": [
+            "principled_negotiation"
+          ],
+          "rationale": "Предлагается совместно решать предметную проблему.",
+          "evidence": {
+            "message_sequence": 5,
+            "quote": "общую задачу"
+          }
+        },
+        {
+          "indicator_id": "I5",
+          "methodology_modules": [
+            "seven_elements"
+          ],
+          "rationale": "Три сценарных объективных критерия привязаны к вопросам сделки.",
+          "evidence": {
+            "message_sequence": 5,
+            "quote": "плану ресурсов"
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 6,
+      "role": "opponent",
+      "text": "Такой подход приемлем. План ресурсов допускает трёх специалистов через 20 дней; для бюджета и формата контроля можно использовать названные вами ориентиры."
+    },
+    {
+      "sequence": 7,
+      "role": "participant",
+      "text": "Предлагаю два равноценных для проекта пакета. Первый: 6 млн, три специалиста, старт через 20 дней, четыре часа отчётности в неделю. Второй: 7 млн, четыре специалиста, старт через 28 дней, три часа отчётности. Какой лучше защищает ваши операционные программы и отчёт комитету?",
+      "annotations": [
+        {
+          "indicator_id": "I8",
+          "methodology_modules": [
+            "meso"
+          ],
+          "rationale": "Одновременно предложены два разных сценарных пакета из одной группы MESO.",
+          "evidence": {
+            "message_sequence": 7,
+            "quote": "два равноценных"
+          }
+        },
+        {
+          "indicator_id": "I6",
+          "methodology_modules": [
+            "integrative"
+          ],
+          "rationale": "Варианты различаются по нескольким вопросам и учитывают интерес директора.",
+          "evidence": {
+            "message_sequence": 7,
+            "quote": "Какой лучше"
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 8,
+      "role": "opponent",
+      "text": "Первый пакет безопаснее для операционных программ. Четыре часа отчётности помогут подготовить статус, но хочу понять, что именно будет в контроле."
+    },
+    {
+      "sequence": 9,
+      "role": "participant",
+      "text": "Согласен на четыре часа отчётности, если фиксируем первый пакет целиком: 6 млн, трёх специалистов и старт через 20 дней. За эти четыре часа еженедельно сверяем расходование бюджета и показатели прогресса по минимальному проверяемому объёму.",
+      "annotations": [
+        {
+          "indicator_id": "I7",
+          "methodology_modules": [
+            "integrative"
+          ],
+          "rationale": "Дополнительная прозрачность прямо обменена на бюджет, команду и старт.",
+          "evidence": {
+            "message_sequence": 9,
+            "quote": "если фиксируем"
+          }
+        },
+        {
+          "indicator_id": "I5",
+          "methodology_modules": [
+            "seven_elements"
+          ],
+          "rationale": "Контроль связан с экономикой пилота и измеримым прогрессом.",
+          "evidence": {
+            "message_sequence": 9,
+            "quote": "расходование бюджета"
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 10,
+      "role": "opponent",
+      "text": "При таких показателях и четырёх часах контроля первый пакет согласую."
+    },
+    {
+      "sequence": 11,
+      "role": "participant",
+      "text": "Фиксирую: вы до старта через 20 дней выделяете 6 млн и трёх специалистов; я формирую минимальный проверяемый объём и каждую неделю готовлю показатели расходования и прогресса; формат контроля — четыре часа в неделю по регламенту инвестиционного комитета. Верно?",
+      "annotations": [
+        {
+          "indicator_id": "I12",
+          "methodology_modules": [
+            "seven_elements"
+          ],
+          "rationale": "Названы обе стороны, действия, срок, объём и измеримый формат контроля.",
+          "evidence": {
+            "message_sequence": 11,
+            "quote": "до старта через 20 дней"
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 12,
+      "role": "opponent",
+      "text": "Верно. Считаю это согласованным пакетом."
+    }
+  ],
+  "expected": {
+    "outcome": "agreement",
+    "process_quality": "strong",
+    "state_delta": {
+      "trust": 24,
+      "tension": -12,
+      "progress": 86,
+      "relationship": 16,
+      "concession_budget_delta": {
+        "project_lead": -12.0,
+        "division_director": -14.0
+      }
+    },
+    "score_band": {
+      "minimum": 90,
+      "maximum": 100
+    },
+    "block_expectations": [
+      {
+        "block_id": "preparation",
+        "minimum_points": 18,
+        "maximum_points": 20,
+        "rationale": "Защищены границы и раскрыты интересы директора.",
+        "evidence_sequences": [
+          1,
+          3,
+          9
+        ]
+      },
+      {
+        "block_id": "process",
+        "minimum_points": 23,
+        "maximum_points": 25,
+        "rationale": "Есть вопросы, слушание и применённые критерии.",
+        "evidence_sequences": [
+          1,
+          3,
+          5,
+          9
+        ]
+      },
+      {
+        "block_id": "value",
+        "minimum_points": 18,
+        "maximum_points": 20,
+        "rationale": "MESO и обмен прозрачности на ресурсы создают ценность.",
+        "evidence_sequences": [
+          7,
+          9
+        ]
+      },
+      {
+        "block_id": "result",
+        "minimum_points": 23,
+        "maximum_points": 25,
+        "rationale": "Пакет внутри ZOPA, конкретен и реализуем.",
+        "evidence_sequences": [
+          11
+        ]
+      },
+      {
+        "block_id": "relationship",
+        "minimum_points": 8,
+        "maximum_points": 10,
+        "rationale": "Опасения признаны, тон деловой.",
+        "evidence_sequences": [
+          3,
+          5
+        ]
+      }
+    ],
+    "penalties": []
+  },
+  "methodological_explanation": "Сильный эталон объединяет Гарвардский подход, активное слушание, SPIN и MESO. Участник не знает скрытые причины заранее: он получает их после открытых вопросов, затем использует только сценарные критерии и завершает разговор ясными обязательствами."
+}

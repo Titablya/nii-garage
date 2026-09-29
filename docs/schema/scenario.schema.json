@@ -1,0 +1,1094 @@
+{
+  "$defs": {
+    "Alternative": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Description",
+          "type": "string"
+        },
+        "utility": {
+          "maximum": 100,
+          "minimum": 0,
+          "title": "Utility",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "description",
+        "utility"
+      ],
+      "title": "Alternative",
+      "type": "object"
+    },
+    "ConditionDefinition": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 64,
+          "minLength": 2,
+          "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "description": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Description",
+          "type": "string"
+        },
+        "match": {
+          "default": "all",
+          "enum": [
+            "all",
+            "any"
+          ],
+          "title": "Match",
+          "type": "string"
+        },
+        "predicates": {
+          "items": {
+            "$ref": "#/$defs/ConditionPredicate"
+          },
+          "minItems": 1,
+          "title": "Predicates",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "description",
+        "predicates"
+      ],
+      "title": "ConditionDefinition",
+      "type": "object"
+    },
+    "ConditionOperator": {
+      "enum": [
+        "eq",
+        "ne",
+        "gte",
+        "lte",
+        "gt",
+        "lt",
+        "in"
+      ],
+      "title": "ConditionOperator",
+      "type": "string"
+    },
+    "ConditionPredicate": {
+      "additionalProperties": false,
+      "properties": {
+        "metric": {
+          "maxLength": 64,
+          "minLength": 2,
+          "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$",
+          "title": "Metric",
+          "type": "string"
+        },
+        "operator": {
+          "$ref": "#/$defs/ConditionOperator"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "boolean"
+            }
+          ],
+          "title": "Value"
+        },
+        "role_id": {
+          "anyOf": [
+            {
+              "maxLength": 64,
+              "minLength": 2,
+              "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Role Id"
+        },
+        "issue_id": {
+          "anyOf": [
+            {
+              "maxLength": 64,
+              "minLength": 2,
+              "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Issue Id"
+        }
+      },
+      "required": [
+        "metric",
+        "operator",
+        "value"
+      ],
+      "title": "ConditionPredicate",
+      "type": "object"
+    },
+    "Difficulty": {
+      "enum": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ],
+      "title": "Difficulty",
+      "type": "string"
+    },
+    "DisclosureRule": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 64,
+          "minLength": 2,
+          "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "owner_role_id": {
+          "maxLength": 64,
+          "minLength": 2,
+          "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$",
+          "title": "Owner Role Id",
+          "type": "string"
+        },
+        "hidden_interest_id": {
+          "maxLength": 64,
+          "minLength": 2,
+          "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$",
+          "title": "Hidden Interest Id",
+          "type": "string"
+        },
+        "trigger": {
+          "$ref": "#/$defs/DisclosureTrigger"
+        },
+        "threshold": {
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Threshold",
+          "type": "integer"
+        },
+        "reveal_message": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Reveal Message",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "owner_role_id",
+        "hidden_interest_id",
+        "trigger",
+        "threshold",
+        "reveal_message"
+      ],
+      "title": "DisclosureRule",
+      "type": "object"
+    },
+    "DisclosureTrigger": {
+      "enum": [
+        "open_question",
+        "active_listening",
+        "trust",
+        "turn",
+        "reciprocal_disclosure"
+      ],
+      "title": "DisclosureTrigger",
+      "type": "string"
+    },
+    "InitialState": {
+      "additionalProperties": false,
+      "properties": {
+        "trust": {
+          "maximum": 100,
+          "minimum": 0,
+          "title": "Trust",
+          "type": "integer"
+        },
+        "tension": {
+          "maximum": 100,
+          "minimum": 0,
+          "title": "Tension",
+          "type": "integer"
+        },
+        "progress": {
+          "maximum": 100,
+          "minimum": 0,
+          "title": "Progress",
+          "type": "integer"
+        },
+        "relationship": {
+          "maximum": 100,
+          "minimum": 0,
+          "title": "Relationship",
+          "type": "integer"
+        },
+        "concession_budget": {
+          "minProperties": 2,
+          "patternProperties": {
+            "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$": {
+              "type": "number"
+            }
+          },
+          "propertyNames": {
+            "maxLength": 64,
+            "minLength": 2
+          },
+          "title": "Concession Budget",
+          "type": "object"
+        }
+      },
+      "required": [
+        "trust",
+        "tension",
+        "progress",
+        "relationship",
+        "concession_budget"
+      ],
+      "title": "InitialState",
+      "type": "object"
+    },
+    "Interest": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 64,
+          "minLength": 2,
+          "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "description": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Description",
+          "type": "string"
+        },
+        "priority": {
+          "maximum": 5,
+          "minimum": 1,
+          "title": "Priority",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "description",
+        "priority"
+      ],
+      "title": "Interest",
+      "type": "object"
+    },
+    "IssueDefinition": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 64,
+          "minLength": 2,
+          "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "title": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "description": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Description",
+          "type": "string"
+        },
+        "unit": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Unit",
+          "type": "string"
+        },
+        "party_weights": {
+          "minProperties": 2,
+          "patternProperties": {
+            "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$": {
+              "type": "number"
+            }
+          },
+          "propertyNames": {
+            "maxLength": 64,
+            "minLength": 2
+          },
+          "title": "Party Weights",
+          "type": "object"
+        },
+        "party_ranges": {
+          "minProperties": 2,
+          "patternProperties": {
+            "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$": {
+              "$ref": "#/$defs/PartyIssueRange"
+            }
+          },
+          "propertyNames": {
+            "maxLength": 64,
+            "minLength": 2
+          },
+          "title": "Party Ranges",
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "description",
+        "unit",
+        "party_weights",
+        "party_ranges"
+      ],
+      "title": "IssueDefinition",
+      "type": "object"
+    },
+    "MethodologyModule": {
+      "enum": [
+        "principled_negotiation",
+        "seven_elements",
+        "active_listening",
+        "integrative",
+        "distributive",
+        "meso",
+        "spin",
+        "nvc",
+        "anchoring",
+        "contingent_agreement",
+        "behavioral_change_stairway"
+      ],
+      "title": "MethodologyModule",
+      "type": "string"
+    },
+    "NegotiationType": {
+      "enum": [
+        "procurement",
+        "internal_resources",
+        "sales",
+        "partnership",
+        "conflict"
+      ],
+      "title": "NegotiationType",
+      "type": "string"
+    },
+    "ObjectiveCriterion": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 64,
+          "minLength": 2,
+          "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "title": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "description": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Description",
+          "type": "string"
+        },
+        "source": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Source",
+          "type": "string"
+        },
+        "issue_ids": {
+          "items": {
+            "maxLength": 64,
+            "minLength": 2,
+            "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$",
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Issue Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "description",
+        "source",
+        "issue_ids"
+      ],
+      "title": "ObjectiveCriterion",
+      "type": "object"
+    },
+    "OfferTemplate": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 64,
+          "minLength": 2,
+          "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "title": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "proposer_role_id": {
+          "maxLength": 64,
+          "minLength": 2,
+          "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$",
+          "title": "Proposer Role Id",
+          "type": "string"
+        },
+        "values": {
+          "minProperties": 1,
+          "patternProperties": {
+            "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$": {
+              "type": "number"
+            }
+          },
+          "propertyNames": {
+            "maxLength": 64,
+            "minLength": 2
+          },
+          "title": "Values",
+          "type": "object"
+        },
+        "equivalent_group": {
+          "anyOf": [
+            {
+              "maxLength": 64,
+              "minLength": 2,
+              "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Equivalent Group"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "proposer_role_id",
+        "values"
+      ],
+      "title": "OfferTemplate",
+      "type": "object"
+    },
+    "PartyIssueRange": {
+      "additionalProperties": false,
+      "properties": {
+        "minimum": {
+          "title": "Minimum",
+          "type": "number"
+        },
+        "maximum": {
+          "title": "Maximum",
+          "type": "number"
+        },
+        "reservation": {
+          "title": "Reservation",
+          "type": "number"
+        },
+        "aspiration": {
+          "title": "Aspiration",
+          "type": "number"
+        },
+        "direction": {
+          "$ref": "#/$defs/PreferenceDirection"
+        }
+      },
+      "required": [
+        "minimum",
+        "maximum",
+        "reservation",
+        "aspiration",
+        "direction"
+      ],
+      "title": "PartyIssueRange",
+      "type": "object"
+    },
+    "PreferenceDirection": {
+      "enum": [
+        "maximize",
+        "minimize"
+      ],
+      "title": "PreferenceDirection",
+      "type": "string"
+    },
+    "PublicBriefing": {
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "summary": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Summary",
+          "type": "string"
+        },
+        "situation": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Situation",
+          "type": "string"
+        },
+        "participant_role_id": {
+          "maxLength": 64,
+          "minLength": 2,
+          "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$",
+          "title": "Participant Role Id",
+          "type": "string"
+        },
+        "objective": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Objective",
+          "type": "string"
+        },
+        "known_facts": {
+          "items": {
+            "maxLength": 2000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Known Facts",
+          "type": "array"
+        },
+        "agenda": {
+          "items": {
+            "maxLength": 2000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Agenda",
+          "type": "array"
+        },
+        "estimated_minutes": {
+          "maximum": 120,
+          "minimum": 3,
+          "title": "Estimated Minutes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "title",
+        "summary",
+        "situation",
+        "participant_role_id",
+        "objective",
+        "known_facts",
+        "agenda",
+        "estimated_minutes"
+      ],
+      "title": "PublicBriefing",
+      "type": "object"
+    },
+    "RoleDefinition": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 64,
+          "minLength": 2,
+          "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "title": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "organization": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Organization",
+          "type": "string"
+        },
+        "goal": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Goal",
+          "type": "string"
+        },
+        "aspiration": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Aspiration",
+          "type": "string"
+        },
+        "reservation": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Reservation",
+          "type": "string"
+        },
+        "batna": {
+          "$ref": "#/$defs/Alternative"
+        },
+        "explicit_interests": {
+          "items": {
+            "$ref": "#/$defs/Interest"
+          },
+          "minItems": 1,
+          "title": "Explicit Interests",
+          "type": "array"
+        },
+        "hidden_interests": {
+          "items": {
+            "$ref": "#/$defs/Interest"
+          },
+          "minItems": 1,
+          "title": "Hidden Interests",
+          "type": "array"
+        },
+        "authority": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Authority",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "organization",
+        "goal",
+        "aspiration",
+        "reservation",
+        "batna",
+        "explicit_interests",
+        "hidden_interests",
+        "authority"
+      ],
+      "title": "RoleDefinition",
+      "type": "object"
+    },
+    "ScenarioMetadata": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 64,
+          "minLength": 2,
+          "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "version": {
+          "minimum": 1,
+          "title": "Version",
+          "type": "integer"
+        },
+        "version_id": {
+          "pattern": "^[a-z][a-z0-9._-]*:v[1-9][0-9]*$",
+          "title": "Version Id",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/ScenarioStatus"
+        },
+        "language": {
+          "pattern": "^[a-z]{2}-[A-Z]{2}$",
+          "title": "Language",
+          "type": "string"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        },
+        "published_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Published At"
+        }
+      },
+      "required": [
+        "id",
+        "version",
+        "version_id",
+        "status",
+        "language",
+        "created_at"
+      ],
+      "title": "ScenarioMetadata",
+      "type": "object"
+    },
+    "ScenarioStatus": {
+      "enum": [
+        "draft",
+        "published",
+        "archived"
+      ],
+      "title": "ScenarioStatus",
+      "type": "string"
+    },
+    "Tone": {
+      "enum": [
+        "cooperative",
+        "businesslike",
+        "assertive",
+        "tense"
+      ],
+      "title": "Tone",
+      "type": "string"
+    },
+    "TradeOption": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 64,
+          "minLength": 2,
+          "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "beneficiary_role_id": {
+          "maxLength": 64,
+          "minLength": 2,
+          "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$",
+          "title": "Beneficiary Role Id",
+          "type": "string"
+        },
+        "give_issue_id": {
+          "maxLength": 64,
+          "minLength": 2,
+          "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$",
+          "title": "Give Issue Id",
+          "type": "string"
+        },
+        "receive_issue_id": {
+          "maxLength": 64,
+          "minLength": 2,
+          "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$",
+          "title": "Receive Issue Id",
+          "type": "string"
+        },
+        "rationale": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        },
+        "conditional": {
+          "default": false,
+          "title": "Conditional",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "beneficiary_role_id",
+        "give_issue_id",
+        "receive_issue_id",
+        "rationale"
+      ],
+      "title": "TradeOption",
+      "type": "object"
+    },
+    "TurnLimits": {
+      "additionalProperties": false,
+      "properties": {
+        "minimum": {
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Minimum",
+          "type": "integer"
+        },
+        "warning_at": {
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Warning At",
+          "type": "integer"
+        },
+        "maximum": {
+          "maximum": 100,
+          "minimum": 2,
+          "title": "Maximum",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "minimum",
+        "warning_at",
+        "maximum"
+      ],
+      "title": "TurnLimits",
+      "type": "object"
+    },
+    "ZopaNoOverlap": {
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "const": "no_overlap",
+          "title": "Status",
+          "type": "string"
+        },
+        "issue_id": {
+          "maxLength": 64,
+          "minLength": 2,
+          "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$",
+          "title": "Issue Id",
+          "type": "string"
+        },
+        "explanation": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Explanation",
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "issue_id",
+        "explanation"
+      ],
+      "title": "ZopaNoOverlap",
+      "type": "object"
+    },
+    "ZopaOverlap": {
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "const": "overlap",
+          "title": "Status",
+          "type": "string"
+        },
+        "issue_id": {
+          "maxLength": 64,
+          "minLength": 2,
+          "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$",
+          "title": "Issue Id",
+          "type": "string"
+        },
+        "lower": {
+          "title": "Lower",
+          "type": "number"
+        },
+        "upper": {
+          "title": "Upper",
+          "type": "number"
+        }
+      },
+      "required": [
+        "status",
+        "issue_id",
+        "lower",
+        "upper"
+      ],
+      "title": "ZopaOverlap",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Complete, versioned source of truth for one negotiation scenario.",
+  "properties": {
+    "schema_version": {
+      "const": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "metadata": {
+      "$ref": "#/$defs/ScenarioMetadata"
+    },
+    "negotiation_type": {
+      "$ref": "#/$defs/NegotiationType"
+    },
+    "public_briefing": {
+      "$ref": "#/$defs/PublicBriefing"
+    },
+    "roles": {
+      "items": {
+        "$ref": "#/$defs/RoleDefinition"
+      },
+      "maxItems": 2,
+      "minItems": 2,
+      "title": "Roles",
+      "type": "array"
+    },
+    "issues": {
+      "items": {
+        "$ref": "#/$defs/IssueDefinition"
+      },
+      "minItems": 1,
+      "title": "Issues",
+      "type": "array"
+    },
+    "zopa": {
+      "items": {
+        "discriminator": {
+          "mapping": {
+            "no_overlap": "#/$defs/ZopaNoOverlap",
+            "overlap": "#/$defs/ZopaOverlap"
+          },
+          "propertyName": "status"
+        },
+        "oneOf": [
+          {
+            "$ref": "#/$defs/ZopaOverlap"
+          },
+          {
+            "$ref": "#/$defs/ZopaNoOverlap"
+          }
+        ]
+      },
+      "minItems": 1,
+      "title": "Zopa",
+      "type": "array"
+    },
+    "objective_criteria": {
+      "items": {
+        "$ref": "#/$defs/ObjectiveCriterion"
+      },
+      "minItems": 1,
+      "title": "Objective Criteria",
+      "type": "array"
+    },
+    "initial_state": {
+      "$ref": "#/$defs/InitialState"
+    },
+    "tone": {
+      "$ref": "#/$defs/Tone"
+    },
+    "difficulty": {
+      "$ref": "#/$defs/Difficulty"
+    },
+    "methodology_modules": {
+      "items": {
+        "$ref": "#/$defs/MethodologyModule"
+      },
+      "minItems": 3,
+      "title": "Methodology Modules",
+      "type": "array"
+    },
+    "disclosure_rules": {
+      "items": {
+        "$ref": "#/$defs/DisclosureRule"
+      },
+      "minItems": 1,
+      "title": "Disclosure Rules",
+      "type": "array"
+    },
+    "offer_templates": {
+      "items": {
+        "$ref": "#/$defs/OfferTemplate"
+      },
+      "minItems": 1,
+      "title": "Offer Templates",
+      "type": "array"
+    },
+    "trade_options": {
+      "items": {
+        "$ref": "#/$defs/TradeOption"
+      },
+      "minItems": 1,
+      "title": "Trade Options",
+      "type": "array"
+    },
+    "success_conditions": {
+      "items": {
+        "$ref": "#/$defs/ConditionDefinition"
+      },
+      "minItems": 1,
+      "title": "Success Conditions",
+      "type": "array"
+    },
+    "impasse_conditions": {
+      "items": {
+        "$ref": "#/$defs/ConditionDefinition"
+      },
+      "minItems": 1,
+      "title": "Impasse Conditions",
+      "type": "array"
+    },
+    "walk_away_conditions": {
+      "items": {
+        "$ref": "#/$defs/ConditionDefinition"
+      },
+      "minItems": 1,
+      "title": "Walk Away Conditions",
+      "type": "array"
+    },
+    "turn_limits": {
+      "$ref": "#/$defs/TurnLimits"
+    },
+    "rubric_version": {
+      "pattern": "^[0-9]+\\.[0-9]+$",
+      "title": "Rubric Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "metadata",
+    "negotiation_type",
+    "public_briefing",
+    "roles",
+    "issues",
+    "zopa",
+    "objective_criteria",
+    "initial_state",
+    "tone",
+    "difficulty",
+    "methodology_modules",
+    "disclosure_rules",
+    "offer_templates",
+    "trade_options",
+    "success_conditions",
+    "impasse_conditions",
+    "walk_away_conditions",
+    "turn_limits",
+    "rubric_version"
+  ],
+  "title": "ScenarioDefinition",
+  "type": "object"
+}

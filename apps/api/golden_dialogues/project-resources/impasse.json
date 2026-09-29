@@ -1,0 +1,205 @@
+{
+  "schema_version": "1.0",
+  "dialogue_id": "project-resources:v1:impasse",
+  "scenario_version_id": "project-resources:v1",
+  "rubric_version": "0.1",
+  "case_type": "impasse",
+  "title": "Тупик из-за повторения позиций",
+  "learning_objective": "Распознать эскалацию, когда существующая ZOPA не исследуется.",
+  "messages": [
+    {
+      "sequence": 1,
+      "role": "participant",
+      "text": "Нужно 8 млн, четыре специалиста и старт через 10 дней.",
+      "annotations": []
+    },
+    {
+      "sequence": 2,
+      "role": "opponent",
+      "text": "Могу обсуждать 4 млн, двух специалистов и старт через 35 дней."
+    },
+    {
+      "sequence": 3,
+      "role": "participant",
+      "text": "Нет, проекту нужны 8 млн, четыре специалиста и старт через 10 дней.",
+      "annotations": []
+    },
+    {
+      "sequence": 4,
+      "role": "opponent",
+      "text": "Моя позиция не меняется: 4 млн, два специалиста и 35 дней."
+    },
+    {
+      "sequence": 5,
+      "role": "participant",
+      "text": "Вы просто не понимаете, как управлять цифровым проектом.",
+      "annotations": [
+        {
+          "indicator_id": "N1",
+          "methodology_modules": [],
+          "rationale": "Оценивается компетентность оппонента вместо предмета.",
+          "evidence": {
+            "message_sequence": 5,
+            "quote": "не понимаете"
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 6,
+      "role": "opponent",
+      "text": "Прошу обсуждать условия, а не мои компетенции. Моя позиция прежняя."
+    },
+    {
+      "sequence": 7,
+      "role": "participant",
+      "text": "Тогда я сообщу, что подразделение намеренно блокирует проект.",
+      "annotations": [
+        {
+          "indicator_id": "N2",
+          "methodology_modules": [],
+          "rationale": "Угроза не следует из полномочий или сценарной BATNA.",
+          "evidence": {
+            "message_sequence": 7,
+            "quote": "сообщу"
+          }
+        }
+      ],
+      "alternative_participant_utterance": {
+        "text": "Если сейчас нельзя выделить минимум три специалиста, давайте сверим по плану ресурсов, возможен ли старт через 20–30 дней, а затем решим, есть ли жизнеспособный пакет.",
+        "rationale": "Заменяет давление на исследование ZOPA и объективный критерий.",
+        "expected_indicators": [
+          "I1",
+          "I5"
+        ],
+        "methodology_modules": [
+          "principled_negotiation",
+          "seven_elements"
+        ]
+      }
+    },
+    {
+      "sequence": 8,
+      "role": "opponent",
+      "text": "Такой формат не помогает. Я остаюсь на прежней позиции."
+    },
+    {
+      "sequence": 9,
+      "role": "participant",
+      "text": "Ваши операционные программы не должны мешать одобренному направлению; мои условия прежние.",
+      "annotations": [
+        {
+          "indicator_id": "N5",
+          "methodology_modules": [],
+          "rationale": "Опасение о риске обязательных программ проигнорировано.",
+          "evidence": {
+            "message_sequence": 9,
+            "quote": "не должны мешать"
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 10,
+      "role": "opponent",
+      "text": "Мы повторяем позиции без решения. Фиксирую тупик."
+    }
+  ],
+  "expected": {
+    "outcome": "impasse",
+    "process_quality": "weak",
+    "state_delta": {
+      "trust": -30,
+      "tension": 35,
+      "progress": 0,
+      "relationship": -32,
+      "concession_budget_delta": {
+        "project_lead": 0.0,
+        "division_director": 0.0
+      }
+    },
+    "score_band": {
+      "minimum": 0,
+      "maximum": 0
+    },
+    "block_expectations": [
+      {
+        "block_id": "preparation",
+        "minimum_points": 2,
+        "maximum_points": 5,
+        "rationale": "Цель названа, но интересы не защищены доказательно.",
+        "evidence_sequences": [
+          1,
+          3
+        ]
+      },
+      {
+        "block_id": "process",
+        "minimum_points": 0,
+        "maximum_points": 3,
+        "rationale": "Нет вопросов, слушания или критериев.",
+        "evidence_sequences": [
+          3
+        ]
+      },
+      {
+        "block_id": "value",
+        "minimum_points": 0,
+        "maximum_points": 0,
+        "rationale": "Вариантов и обменов нет.",
+        "evidence_sequences": [
+          1
+        ]
+      },
+      {
+        "block_id": "result",
+        "minimum_points": 0,
+        "maximum_points": 6,
+        "rationale": "ZOPA существует, но не исследована.",
+        "evidence_sequences": [
+          9
+        ]
+      },
+      {
+        "block_id": "relationship",
+        "minimum_points": 0,
+        "maximum_points": 2,
+        "rationale": "Тон разрушен личной атакой и угрозой.",
+        "evidence_sequences": [
+          5,
+          7
+        ]
+      }
+    ],
+    "penalties": [
+      {
+        "penalty_id": "penalty.personal_attack",
+        "minimum_occurrences": 1,
+        "maximum_occurrences": 1,
+        "rationale": "Личная атака.",
+        "evidence_sequences": [
+          5
+        ]
+      },
+      {
+        "penalty_id": "penalty.threat",
+        "minimum_occurrences": 1,
+        "maximum_occurrences": 1,
+        "rationale": "Необоснованная угроза.",
+        "evidence_sequences": [
+          7
+        ]
+      },
+      {
+        "penalty_id": "penalty.ignored_concern",
+        "minimum_occurrences": 1,
+        "maximum_occurrences": 1,
+        "rationale": "Игнорирование опасения.",
+        "evidence_sequences": [
+          9
+        ]
+      }
+    ]
+  },
+  "methodological_explanation": "Три повторяющихся позиции при нуле раскрытых интересов соответствуют сценарию тупика. Эскалация не заменяет проверку планом ресурсов и поиск пересечения диапазонов."
+}
